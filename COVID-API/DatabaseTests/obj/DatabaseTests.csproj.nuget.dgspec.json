@@ -1,20 +1,21 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diogo\\Desktop\\Covid-API\\DatabaseTests\\DatabaseTests.csproj": {}
+    "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\DatabaseTests\\DatabaseTests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diogo\\Desktop\\Covid-API\\DatabaseTests\\DatabaseTests.csproj": {
+    "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\DatabaseTests\\DatabaseTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diogo\\Desktop\\Covid-API\\DatabaseTests\\DatabaseTests.csproj",
+        "projectUniqueName": "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\DatabaseTests\\DatabaseTests.csproj",
         "projectName": "DatabaseTests",
-        "projectPath": "C:\\Users\\diogo\\Desktop\\Covid-API\\DatabaseTests\\DatabaseTests.csproj",
+        "projectPath": "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\DatabaseTests\\DatabaseTests.csproj",
         "packagesPath": "C:\\Users\\diogo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diogo\\Desktop\\Covid-API\\DatabaseTests\\obj\\",
+        "outputPath": "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\DatabaseTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
           "C:\\Users\\diogo\\AppData\\Roaming\\NuGet\\NuGet.Config",

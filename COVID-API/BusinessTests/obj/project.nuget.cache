@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4ICwTfc17t+4cZvWtfzViNDLkXh/t49zRSvap2zxuG10/dtKIQ3H3scXldj+PCu0sXyNWLBSUaFHPZiSwykXdA==",
+  "dgSpecHash": "sfGysx63M1g+6V9ZFm5vnU3EsX2N9YTgLMoltoTUQFaCfdyQgTafS6/gaMzB/Lu5eSHEvCo+S1Grc+kstD6dXA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\diogo\\Desktop\\Covid-API\\BusinessTests\\BusinessTests.csproj",
+  "projectFilePath": "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\BusinessTests\\BusinessTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.codecoverage\\15.9.0\\microsoft.codecoverage.15.9.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",

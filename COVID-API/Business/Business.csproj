@@ -8,4 +8,8 @@
     <ProjectReference Include="..\DataBase\DataBase.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Update="Microsoft.NETCore.App" Version="2.2.0" />
+  </ItemGroup>
+
 </Project>

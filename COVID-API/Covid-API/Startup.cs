@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Business;
+using Business.Interfaces;
+using Covid_API.Controllers;
+using Covid_API.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,6 +30,12 @@ namespace Covid_API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            // Registo de dependencias - Dependency injection
+            services.AddScoped<IDoente, DoenteController>();
+            services.AddScoped<IDoenteServices, DoenteServices>();
+
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
