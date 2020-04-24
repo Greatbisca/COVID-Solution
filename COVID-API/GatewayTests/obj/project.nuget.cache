@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "/DIs2Nh5Wjpd228hpYQg5zRc7pZ8YiLVCrwU4wI2QCLLCUN9T2Dk6AHmuuMA48Uw3tN5fVrEmseQ1twmDQdH6w==",
+  "dgSpecHash": "KxS8XN5kU5PHfsj3kZz6YfaZwcRGjief/+vgHsSO3h6XFaJJ4P8gh4H2jhSUb4NOEPpN9xpTAKp3hH6UsJrCVg==",
   "success": true,
   "projectFilePath": "C:\\Users\\diogo\\Documents\\GitHub\\COVID-Solution\\COVID-API\\GatewayTests\\GatewayTests.csproj",
   "expectedPackageFiles": [
@@ -74,6 +74,7 @@
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.nodeservices\\2.2.0\\microsoft.aspnetcore.nodeservices.2.2.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.owin\\2.2.0\\microsoft.aspnetcore.owin.2.2.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.razor\\2.2.0\\microsoft.aspnetcore.razor.2.2.0.nupkg.sha512",
+    "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.razor.design\\2.2.0\\microsoft.aspnetcore.razor.design.2.2.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\2.2.0\\microsoft.aspnetcore.razor.language.2.2.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.razor.runtime\\2.2.0\\microsoft.aspnetcore.razor.runtime.2.2.0.nupkg.sha512",
     "C:\\Users\\diogo\\.nuget\\packages\\microsoft.aspnetcore.responsecaching\\2.2.0\\microsoft.aspnetcore.responsecaching.2.2.0.nupkg.sha512",

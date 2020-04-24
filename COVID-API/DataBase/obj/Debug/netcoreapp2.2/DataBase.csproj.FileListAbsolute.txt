@@ -1,11 +1,3 @@
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.deps.json
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.dll
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.pdb
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.csproj.CoreCompileInputs.cache
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfoInputs.cache
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfo.cs
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.dll
-C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.pdb
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.deps.json
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.dll
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.pdb
@@ -15,3 +7,12 @@ C:\Users\rui.almeida\source\repos\COVID-API\DataBase\obj\Debug\netcoreapp2.2\Dat
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfo.cs
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.dll
 C:\Users\rui.almeida\source\repos\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.pdb
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.deps.json
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.dll
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.pdb
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.csprojAssemblyReference.cache
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.csproj.CoreCompileInputs.cache
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfoInputs.cache
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfo.cs
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.dll
+C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.pdb

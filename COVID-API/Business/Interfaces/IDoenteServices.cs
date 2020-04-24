@@ -24,7 +24,7 @@ namespace Business.Interfaces
         );
 
         /// <summary>
-        /// Serviço para a actualização dos dados de um doente
+        /// Serviço para a atualização dos dados de um doente
         /// </summary>
         /// <param name="id"></param>
         /// <param name="doente"></param>

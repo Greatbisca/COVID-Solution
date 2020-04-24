@@ -88,12 +88,12 @@ namespace Covid_API.Controllers
         }
 
         /// <summary>
-        /// Endpoint para a actualização de um doente
+        /// Endpoint para a atualização de um doente
         /// </summary>
         /// <param name="id">Identificador de um doente</param>
-        /// <param name="doente">Dados do doente para actualização</param>
+        /// <param name="doente">Dados do doente para atualização</param>
         /// <param name="ct"></param>
-        /// <returns>View do doente actualizado</returns>
+        /// <returns>View do doente atualizado</returns>
         [HttpPut]
         [Route("{id}")]
         public Task<DataBase.ViewModels.Doente> Update(

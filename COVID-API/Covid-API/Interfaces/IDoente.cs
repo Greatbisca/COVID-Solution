@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Covid_API.Interfaces
 {
-    //Interface do Gateway do Doentes
+    //Interface do Gateway dos Doentes
     public interface IDoente
     {
         /// <summary>

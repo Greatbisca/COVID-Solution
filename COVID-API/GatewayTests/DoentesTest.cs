@@ -17,7 +17,9 @@ namespace Tests
         [SetUp]
         public void Setup()
         {
+            #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IDoenteServices> DoenteServices = new Mock<IDoenteServices>();
+            //Comportamento para criar o Doente
             DoenteServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Doente>(), 
                 CancellationToken.None
@@ -57,7 +59,7 @@ namespace Tests
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
-
+            #endregion
             gateway = new DoenteController(DoenteServices.Object);
         }
 
@@ -116,7 +118,8 @@ namespace Tests
         {
             try
             {
-                await gateway.GetAll(
+                await gateway.Delete(
+                    1,
                     CancellationToken.None
                 );
             } catch

@@ -13014,6 +13014,7 @@
       "Microsoft.AspNetCore.App >= 2.2.0",
       "Microsoft.AspNetCore.Razor.Design >= 2.2.0",
       "Microsoft.NETCore.App >= 2.2.0",
+      "Microsoft.VisualStudio.Web.CodeGeneration >= 2.2.4",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 2.2.4"
     ]
   },
@@ -13073,7 +13074,6 @@
             "version": "[2.2.0, )"
           },
           "Microsoft.AspNetCore.Razor.Design": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.2.0, )"
           },
@@ -13082,6 +13082,10 @@
             "target": "Package",
             "version": "[2.2.0, )",
             "autoReferenced": true
+          },
+          "Microsoft.VisualStudio.Web.CodeGeneration": {
+            "target": "Package",
+            "version": "[2.2.4, )"
           },
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
