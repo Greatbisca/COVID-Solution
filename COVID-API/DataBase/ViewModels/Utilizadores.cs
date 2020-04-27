@@ -8,6 +8,6 @@ namespace DataBase.ViewModels
     {
         public string Username { get; set; }
         public string Sexo { get; set; }
-        public int Id_Perfil_Utilizador
+        public int Id_Perfil_Utilizador { get; set; }
     }
 }
