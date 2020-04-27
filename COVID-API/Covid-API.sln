@@ -1,21 +1,21 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.902
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Covid-API", "Covid-API\Covid-API.csproj", "{E33958DA-8B90-4805-A9D6-F2F10C78EC48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Covid-API", "Covid-API\Covid-API.csproj", "{E33958DA-8B90-4805-A9D6-F2F10C78EC48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Business.csproj", "{9B2DE1BB-3141-4110-B6AC-F1490D7362DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Business", "Business\Business.csproj", "{9B2DE1BB-3141-4110-B6AC-F1490D7362DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataBase", "DataBase\DataBase.csproj", "{BAEAAEC7-7DA0-4DEE-A763-81724C5BE742}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataBase", "DataBase\DataBase.csproj", "{BAEAAEC7-7DA0-4DEE-A763-81724C5BE742}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{3D8207E4-BEB8-4A6B-8698-7A7D2FD42B76}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GatewayTests", "GatewayTests\GatewayTests.csproj", "{D161C951-F636-4B90-9467-BEAA6BC6F6A5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GatewayTests", "GatewayTests\GatewayTests.csproj", "{D161C951-F636-4B90-9467-BEAA6BC6F6A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessTests", "BusinessTests\BusinessTests.csproj", "{D50DB3A3-FCE7-455B-80A5-766EFE59EF17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessTests", "BusinessTests\BusinessTests.csproj", "{D50DB3A3-FCE7-455B-80A5-766EFE59EF17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseTests", "DatabaseTests\DatabaseTests.csproj", "{D3C84988-9B67-4394-A7A7-2C4CF11727D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseTests", "DatabaseTests\DatabaseTests.csproj", "{D3C84988-9B67-4394-A7A7-2C4CF11727D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
