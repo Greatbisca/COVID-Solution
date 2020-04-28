@@ -5,114 +5,114 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace GatewayTests
 {
-    public class ModulosTest
+    public class Profissionais_SaudeTest
     {
-        IModulos gateway;
+        IProfissionais_Saude gateway;
+
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IModulosServices> ModulosServices = new Mock<IModulosServices>();
+            Mock<IProfissionais_SaudeServices> Profissionais_SaudeServices = new Mock<IProfissionais_SaudeServices>();
             //Comportamento para criar o Doente
-            ModulosServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Modulos>(),
+            Profissionais_SaudeServices.Setup(x => x.CreateAsync(
+                It.IsAny<DataBase.Models.Profissionais_Saude>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
             {
-                Nome = "Diogo Biscaia"
+                Nome = "Joaquim da Siva"
             });
 
-            ModulosServices.Setup(x => x.UpdateAsync(
+            Profissionais_SaudeServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Modulos>(),
+                It.IsAny<DataBase.Models.Profissionais_Saude>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
             {
-                Nome = "Diogo Biscaia"
+                Nome = "Joaquim da Silva"
             });
 
-            ModulosServices.Setup(x => x.GetByIdAsync(
+            Profissionais_SaudeServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
             {
-                Nome = "Diogo Biscaia"
+                Nome = "Joaquim da Silva"
             });
 
-            ModulosServices.Setup(x => x.GetAllAsync(
+            Profissionais_SaudeServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Modulos>()
+            )).ReturnsAsync(new List<DataBase.ViewModels.Profissionais_Saude>()
             {
-                new DataBase.ViewModels.Modulos()
+                new DataBase.ViewModels.Profissionais_Saude()
                 {
-                    Nome = "Diogo Biscaia"
+                    Nome = "Joaquim da Silva"
                 }
             });
 
-            ModulosServices.Setup(x => x.DeleteAsync(
+            Profissionais_SaudeServices.Setup(x => x.DeleteAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
             #endregion
-            gateway = new ModulosController(ModulosServices.Object);
+            gateway = new Profissionais_SaudeController(Profissionais_SaudeServices.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var modulos = await gateway.Create(
-                new DataBase.Models.Modulos()
+            var profissionais_saude = await gateway.Create(
+                new DataBase.Models.Profissionais_Saude()
                 {
-                    Nome = "Diogo Biscaia"
+                    Profissao = "Medico"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var modulos = await gateway.Update(
+            var profissionais_saude = await gateway.Update(
                 1,
-                new DataBase.Models.Modulos()
+                new DataBase.Models.Profissionais_Saude()
                 {
-                    Nome = "Diogo Biscaia"
+                    Profissao = "Medico"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var modulos = await gateway.GetById(
+            var profissionais_saude = await gateway.GetById(
                 1,
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var modulos = await gateway.GetAll(
+            var profissionais_saude = await gateway.GetAll(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(modulos.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Diogo Biscaia"));
         }
 
         [Test]
@@ -134,8 +134,6 @@ namespace GatewayTests
                 Assert.IsTrue(true);
             }
         }
-
-
 
     }
 }

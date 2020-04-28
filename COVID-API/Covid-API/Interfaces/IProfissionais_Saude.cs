@@ -43,6 +43,5 @@ namespace Covid_API.Interfaces
         Task<DataBase.ViewModels.Profissionais_Saude> GetAll(CancellationToken ct);
 
         Task Delete(int id, CancellationToken ct);
-
     }
 }

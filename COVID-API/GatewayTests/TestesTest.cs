@@ -12,107 +12,110 @@ using System.Threading.Tasks;
 
 namespace GatewayTests
 {
-    public class ModulosTest
+    public class TestesTest
     {
-        IModulos gateway;
+        ITestes gateway;
+
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IModulosServices> ModulosServices = new Mock<IModulosServices>();
-            //Comportamento para criar o Doente
-            ModulosServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Modulos>(),
+            Mock<ITesteServices> TesteServices = new Mock<ITesteServices>();
+            //Comportamento para criar o Teste
+            TesteServices.Setup(x => x.CreateAsync(
+                It.IsAny<DataBase.Models.Teste>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Teste()
             {
-                Nome = "Diogo Biscaia"
+                Resultado_Teste = "Positivo"
             });
 
-            ModulosServices.Setup(x => x.UpdateAsync(
+            TesteServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Modulos>(),
+                It.IsAny<DataBase.Models.Teste>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Teste()
             {
-                Nome = "Diogo Biscaia"
+                Resultado_Teste = "Positivo"
             });
 
-            ModulosServices.Setup(x => x.GetByIdAsync(
+            TesteServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Teste()
             {
-                Nome = "Diogo Biscaia"
+                Resultado_Teste = "Positivo"
             });
 
-            ModulosServices.Setup(x => x.GetAllAsync(
+            TesteServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Modulos>()
+            )).ReturnsAsync(new List<DataBase.ViewModels.Teste>()
             {
-                new DataBase.ViewModels.Modulos()
+                new DataBase.ViewModels.Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                    Resultado_Teste = "Positivo"
                 }
             });
 
-            ModulosServices.Setup(x => x.DeleteAsync(
+            TesteServices.Setup(x => x.DeleteAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
             #endregion
-            gateway = new ModulosController(ModulosServices.Object);
+            gateway = new TesteController(TesteServices.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var modulos = await gateway.Create(
-                new DataBase.Models.Modulos()
+            var teste = await gateway.Create(
+                new DataBase.Models.Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                    Tipo_Teste = "Teste COVID"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(teste.Tipo_Teste, "Teste COVID");
         }
+
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var modulos = await gateway.Update(
+            var teste = await gateway.Update(
                 1,
-                new DataBase.Models.Modulos()
+                new DataBase.Models.Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                    Tipo_Teste = "Teste COVID"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(teste.Tipo_Teste, "Teste COVID");
         }
 
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var modulos = await gateway.GetById(
+            var teste = await gateway.GetById(
                 1,
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(teste.Tipo_Teste, "Teste COVID");
+
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var modulos = await gateway.GetAll(
+            var teste = await gateway.GetAll(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(modulos.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(teste.Any(x => x.Tipo_Teste == "Teste COVID"));
         }
 
         [Test]
@@ -134,8 +137,5 @@ namespace GatewayTests
                 Assert.IsTrue(true);
             }
         }
-
-
-
     }
 }

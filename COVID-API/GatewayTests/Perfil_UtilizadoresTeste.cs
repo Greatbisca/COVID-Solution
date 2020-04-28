@@ -12,107 +12,108 @@ using System.Threading.Tasks;
 
 namespace GatewayTests
 {
-    public class ModulosTest
+    public class Perfil_UtilizadoresTeste
     {
-        IModulos gateway;
+        IPerfil_Utilizador gateway;
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IModulosServices> ModulosServices = new Mock<IModulosServices>();
+            Mock<IPerfil_UtilizadoresServices> Perfil_UtilizadoresServices = new Mock<IPerfil_UtilizadoresServices>();
             //Comportamento para criar o Doente
-            ModulosServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Modulos>(),
+            Perfil_UtilizadoresServices.Setup(x => x.CreateAsync(
+                It.IsAny<DataBase.Models.Perfil_Utilizador>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            ModulosServices.Setup(x => x.UpdateAsync(
+            Perfil_UtilizadoresServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Modulos>(),
+                It.IsAny<DataBase.Models.Perfil_Utilizador>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            ModulosServices.Setup(x => x.GetByIdAsync(
+            Perfil_UtilizadoresServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            ModulosServices.Setup(x => x.GetAllAsync(
+            Perfil_UtilizadoresServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Modulos>()
+            )).ReturnsAsync(new List<DataBase.ViewModels.Perfil_Utilizador>()
             {
-                new DataBase.ViewModels.Modulos()
+                new DataBase.ViewModels.Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 }
             });
 
-            ModulosServices.Setup(x => x.DeleteAsync(
+            Perfil_UtilizadoresServices.Setup(x => x.DeleteAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
             #endregion
-            gateway = new ModulosController(ModulosServices.Object);
+            gateway = new Perfil_UtilizadorController(Perfil_UtilizadoresServices.Object);
         }
+
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var modulos = await gateway.Create(
-                new DataBase.Models.Modulos()
+            var perfil_utilizador = await gateway.Create(
+                new DataBase.Models.Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var modulos = await gateway.Update(
+            var perfil_utilizador = await gateway.Update(
                 1,
-                new DataBase.Models.Modulos()
+                new DataBase.Models.Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var modulos = await gateway.GetById(
+            var perfil_utilizador = await gateway.GetById(
                 1,
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var modulos = await gateway.GetAll(
+            var perfil_utilizador = await gateway.GetAll(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(modulos.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(perfil_utilizador.Any(x => x.Nome == "Diogo Biscaia"));
         }
 
         [Test]
@@ -134,8 +135,5 @@ namespace GatewayTests
                 Assert.IsTrue(true);
             }
         }
-
-
-
     }
 }
