@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="modulos"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Modulos> Create(DataBase.Models.Modulos modulos, CancellationToken ct);
+        Task<DataBase.ViewModels.Modulos> CreateAsync(DataBase.Models.Modulos modulos, CancellationToken ct);
         /// <summary>
         /// Update Modulo
         /// </summary>
@@ -23,26 +23,26 @@ namespace Covid_API.Interfaces
         /// <param name="modulos"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Modulos> Update(int id, DataBase.Models.Modulos modulos, CancellationToken ct);
+        Task<DataBase.ViewModels.Modulos> UpdateAsync(int id, DataBase.Models.Modulos modulos, CancellationToken ct);
         /// <summary>
         /// Obter Modulo por ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Modulos> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Modulos> GetByIdAsync(int id, CancellationToken ct);
         /// <summary>
         /// Listar todos os Modulos
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Modulos>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct);
         /// <summary>
         /// Apagar o modulo pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
     }
 }

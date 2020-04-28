@@ -33,7 +33,7 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional saude criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> Create(
+        public Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(
             [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
             CancellationToken ct
         )
@@ -48,7 +48,7 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -63,7 +63,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAll(CancellationToken ct)
+        public Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional de saude</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> GetById(
+        public Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -93,7 +93,7 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional de saude atualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> Update(
+        public Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
             CancellationToken ct

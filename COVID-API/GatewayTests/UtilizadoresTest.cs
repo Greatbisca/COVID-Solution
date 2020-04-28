@@ -12,7 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Tests
+namespace GatewayTests
 {
     public class UtilizadoresTest
     {
@@ -24,122 +24,29 @@ namespace Tests
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Utilizador
-            UtilizadoresServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Utilizadores>(),
+            UtilizadoresServices.Setup(x => x.ValidateLoginAsync(
+                It.IsAny<string>(),
+                It.IsAny<string>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Utilizadores()
-            {
-                Username = "Greatbisca"
-
-            });
-
-            UtilizadoresServices.Setup(x => x.UpdateAsync(
-                It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Utilizadores>(),
-                CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Utilizadores()
-            {
-                Username = "Greatbisca"
-            });
-
-            UtilizadoresServices.Setup(x => x.GetByIdAsync(
-              It.IsAny<int>(),
-              CancellationToken.None
-          )).ReturnsAsync(new DataBase.ViewModels.Utilizadores()
-          {
-              Username = "Greatbisca"
-          });
-
-            UtilizadoresServices.Setup(x => x.GetAllAsync(
-                CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Utilizadores>()
-            {
-                new DataBase.ViewModels.Utilizadores()
-                {
-                    Username = "Greatbisca"
-                }
-            });
-
-            UtilizadoresServices.Setup(x => x.DeleteAsync(
-                It.IsAny<int>(),
-                CancellationToken.None
-            ));
+            )).ReturnsAsync("AUTHENTICATION_TOKEN");
+            
             #endregion
             gateway = new UtilizadoresController(UtilizadoresServices.Object);
         }
 
-            [Test]
-        public async Task CreateTestAsync()
+        [Test]
+        public async Task LoginTestAsync()
         {
-            var utilizadores = await gateway.Create(
-                new DataBase.Models.Utilizadores()
+            var token = await gateway.LoginAsync(
+                new LoginRequestModel()
                 {
-                    Username = "Greatbisca"
+                    Password = "Diogo",
+                    Username = "Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.Equals(utilizadores.Username, "Greatbisca");
+            Assert.Equals(token, "AUTHENTICATION_TOKEN");
         }
-
-        [Test]
-        public async Task UpdateTestAsync()
-        {
-            var utilizadores = await gateway.Update(
-                1,
-                new DataBase.Models.Utilizadores()
-                {
-                    Nome = "Greatbisca"
-                },
-                CancellationToken.None
-            );
-
-            Assert.Equals(utilizadores.Username, "Greatbisca");
-        }
-
-        [Test]
-        public async Task GetByIdTestAsync()
-        {
-            var utilizadores = await gateway.GetById(
-                1,
-                CancellationToken.None
-            );
-
-            Assert.Equals(utilizadores.Username, "Greatbisca");
-        }
-
-        [Test]
-        public async Task GetAllTestAsync()
-        {
-            var utilizadores = await gateway.GetAll(
-                CancellationToken.None
-            );
-
-            Assert.IsTrue(utilizadores.Any(x => x.Username == "Greatbisca"));
-        }
-
-        [Test]
-        public async Task DeleteAsync()
-        {
-            try
-            {
-                await gateway.Delete(
-                    1,
-                    CancellationToken.None
-                );
-            }
-            catch
-            {
-                Assert.IsTrue(false);
-            }
-            finally
-            {
-                Assert.IsTrue(true);
-            }
-
-
-        }
-
-
     }
 }

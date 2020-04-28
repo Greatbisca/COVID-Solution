@@ -69,7 +69,7 @@ namespace GatewayTests
         [Test]
         public async Task CreateTestAsync()
         {
-            var internamento = await gateway.Create(
+            var internamento = await gateway.CreateAsync(
                 new DataBase.Models.Internamento()
                 {
                     Id_Doente = 12345
@@ -83,7 +83,7 @@ namespace GatewayTests
         [Test]
         public async Task UpdateTestAsync()
         {
-            var internamento = await gateway.Update(
+            var internamento = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Internamento()
                 {
@@ -98,7 +98,7 @@ namespace GatewayTests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var internamento = await gateway.GetById(
+            var internamento = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -109,7 +109,7 @@ namespace GatewayTests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var internamento = await gateway.GetAll(
+            var internamento = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -117,11 +117,11 @@ namespace GatewayTests
         }
 
         [Test]
-        public async Task DeleteAsync()
+        public async Task DeleteTestAsync()
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );

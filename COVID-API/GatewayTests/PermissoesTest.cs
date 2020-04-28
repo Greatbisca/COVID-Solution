@@ -5,8 +5,10 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace GatewayTests
 {
@@ -25,7 +27,12 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
             {
-                Id = 1
+                Username = "Diogo Biscaia",
+                Modulo = "Doentes",
+                Criar = true,
+                Eliminar = true,
+                Escrever = true,
+                Ler = true
             });
 
             PermissoesServices.Setup(x => x.UpdateAsync(
@@ -34,7 +41,12 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
             {
-                Id = 1
+                Username = "Diogo Biscaia",
+                Modulo = "Doentes",
+                Criar = true,
+                Eliminar = true,
+                Escrever = true,
+                Ler = true
             });
 
             PermissoesServices.Setup(x => x.GetByIdAsync(
@@ -42,7 +54,12 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
             {
-                Id = 1
+                Username = "Diogo Biscaia",
+                Modulo = "Doentes",
+                Criar = true,
+                Eliminar = true,
+                Escrever = true,
+                Ler = true
             });
 
             PermissoesServices.Setup(x => x.GetAllAsync(
@@ -51,7 +68,12 @@ namespace GatewayTests
             {
                 new DataBase.ViewModels.Permissoes()
                 {
-                    Id = 1
+                    Username = "Diogo Biscaia",
+                    Modulo = "Doentes",
+                    Criar = true,
+                    Eliminar = true,
+                    Escrever = true,
+                    Ler = true
                 }
             });
 
@@ -61,6 +83,79 @@ namespace GatewayTests
             ));
             #endregion
             gateway = new PermissoesController(PermissoesServices.Object);
+        }
+
+        [Test]
+        public async Task CreateTestAsync() {
+            var permissao = await gateway.CreateAsync(new DataBase.Models.Permissoes()
+                {
+                    Id = 0,
+                    Id_Modulo = 1,
+                    Id_Perfil_Utilizador = 1,
+                    Ler = true,
+                    Escrever = true,
+                    Eliminar = true,
+                    Criar = true
+                },
+                CancellationToken.None
+            );
+
+            Assert.Equals(permissao.Username, "Diogo Biscaia");
+        }
+
+
+        [Test]
+        public async Task UpdateTestAsync() {
+            var permissao = await gateway.UpdateAsync(
+                1,
+                new DataBase.Models.Permissoes()
+                {
+                    Id = 1,
+                    Id_Modulo = 1,
+                    Id_Perfil_Utilizador = 1,
+                    Ler = true,
+                    Escrever = true,
+                    Eliminar = true,
+                    Criar = true
+                },
+                CancellationToken.None
+            );
+
+            Assert.Equals(permissao.Username, "Diogo Biscaia");
+        }
+
+        [Test]
+        public async Task GetByIdTestAsync()
+        {
+            var permissao = await gateway.GetByIdAsync(1, CancellationToken.None);
+            Assert.Equals(permissao.Username, "Diogo Biscaia");
+        }
+
+        [Test]
+        public async Task GetAllTestAsync()
+        {
+            var permissoes = await gateway.GetAllAsync(CancellationToken.None);
+            Assert.IsTrue(permissoes.Any(x => x.Username == "Diogo Biscaia"));
+        }
+
+        [Test]
+        public async Task DeleteTestAsync()
+        {
+            try
+            {
+                await gateway.DeleteAsync(
+                    1,
+                    CancellationToken.None
+                );
+            }
+            catch
+            {
+                Assert.IsTrue(false);
+            }
+            finally
+            {
+                Assert.IsTrue(true);
+            }
         }
     }
 }

@@ -69,7 +69,7 @@ namespace GatewayTests
         [Test]
         public async Task CreateTestAsync()
         {
-            var perfil_utilizador = await gateway.Create(
+            var perfil_utilizador = await gateway.CreateAsync(
                 new DataBase.Models.Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
@@ -83,7 +83,7 @@ namespace GatewayTests
         [Test]
         public async Task UpdateTestAsync()
         {
-            var perfil_utilizador = await gateway.Update(
+            var perfil_utilizador = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Perfil_Utilizador()
                 {
@@ -98,7 +98,7 @@ namespace GatewayTests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var perfil_utilizador = await gateway.GetById(
+            var perfil_utilizador = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -109,7 +109,7 @@ namespace GatewayTests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var perfil_utilizador = await gateway.GetAll(
+            var perfil_utilizador = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -117,11 +117,11 @@ namespace GatewayTests
         }
 
         [Test]
-        public async Task DeleteAsync()
+        public async Task DeleteTestAsync()
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );

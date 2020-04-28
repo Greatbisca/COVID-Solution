@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="profissionais"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> Create(DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
+        Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
 
         /// <summary>
         /// Update do Profissional de Saude
@@ -24,7 +24,7 @@ namespace Covid_API.Interfaces
         /// <param name="profissionais"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> Update(int id, DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
+        Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(int id, DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
 
         /// <summary>
         /// Obter um Profissional pelo seu respetivo Id
@@ -33,15 +33,15 @@ namespace Covid_API.Interfaces
         /// <param name="profissionais"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> GetById(int id, DataBase.ViewModels.Profissionais_Saude profissionais, CancellationToken ct);
+        Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(int id, CancellationToken ct);
 
         /// <summary>
         /// Obter todos os Profissionais de Saude
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct);
 
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
     }
 }

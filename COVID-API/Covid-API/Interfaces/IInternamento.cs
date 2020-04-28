@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="internamento"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> Create(DataBase.Models.Internamento internamento, CancellationToken ct);
+        Task<DataBase.ViewModels.Internamento> CreateAsync(DataBase.Models.Internamento internamento, CancellationToken ct);
         /// <summary>
         /// Update Internamento
         /// </summary>
@@ -23,27 +23,27 @@ namespace Covid_API.Interfaces
         /// <param name="internamento"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> Update(int id, DataBase.Models.Internamento internamento, CancellationToken ct);
+        Task<DataBase.ViewModels.Internamento> UpdateAsync(int id, DataBase.Models.Internamento internamento, CancellationToken ct);
         /// <summary>
         /// Obter o Internamento por ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Internamento> GetByIdAsync(int id, CancellationToken ct);
         /// <summary>
         /// Listar todos os Internamentos
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Internamento>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Internamento>> GetAllAsync(CancellationToken ct);
         /// <summary>
         /// Apagar o Internamento pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
 
     }
 }

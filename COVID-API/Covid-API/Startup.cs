@@ -33,7 +33,24 @@ namespace Covid_API
 
             // Registo de dependencias - Dependency injection
             services.AddScoped<IDoente, DoenteController>();
+            services.AddScoped<IHospital, HospitalController>();
+            services.AddScoped<IInternamento, InternamentoController>();
+            services.AddScoped<IModulos, ModulosController>();
+            services.AddScoped<IPerfil_Utilizador, Perfil_UtilizadorController>();
+            services.AddScoped<IPermissoes, PermissoesController>();
+            services.AddScoped<IProfissionais_Saude, Profissionais_SaudeController>();
+            services.AddScoped<ITestes, TesteController>();
+            services.AddScoped<IUtilizadores, UtilizadoresController>();
+
             services.AddScoped<IDoenteServices, DoenteServices>();
+            services.AddScoped<IHospitalServices, HospitalServices>();
+            services.AddScoped<IInternamentoServices, InternamentoServices>();
+            services.AddScoped<IModulosServices, ModulosServices>();
+            services.AddScoped<IPerfil_UtilizadoresServices, Perfil_UtilizadorServices>();
+            services.AddScoped<IPermissoesServices, PermissoesServices>();
+            services.AddScoped<IProfissionais_SaudeServices, Profissionais_SaudeServices>();
+            services.AddScoped<ITesteServices, TesteServices>();
+            services.AddScoped<IUtilizadoresServices, UtilizadoresServices>();
 
 
         }

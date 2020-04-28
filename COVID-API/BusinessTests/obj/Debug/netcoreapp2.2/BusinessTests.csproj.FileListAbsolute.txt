@@ -27,3 +27,17 @@ C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\BusinessTests\obj\Debug
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.dll
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.pdb
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.genruntimeconfig.cache
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\NUnit3.TestAdapter.dll
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\NUnit3.TestAdapter.pdb
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\nunit.engine.netstandard.dll
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\BusinessTests.deps.json
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\BusinessTests.runtimeconfig.json
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\BusinessTests.runtimeconfig.dev.json
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\BusinessTests.dll
+C:\covid19\COVID-API\BusinessTests\bin\Debug\netcoreapp2.2\BusinessTests.pdb
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.csproj.CoreCompileInputs.cache
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.AssemblyInfoInputs.cache
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.AssemblyInfo.cs
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.dll
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.pdb
+C:\covid19\COVID-API\BusinessTests\obj\Debug\netcoreapp2.2\BusinessTests.csprojAssemblyReference.cache

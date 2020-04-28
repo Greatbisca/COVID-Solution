@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> Create(DataBase.Models.Hospital hospital, CancellationToken ct);
+        Task<DataBase.ViewModels.Hospital> CreateAsync(DataBase.Models.Hospital hospital, CancellationToken ct);
 
         /// <summary>
         /// Update Hospital
@@ -24,7 +24,7 @@ namespace Covid_API.Interfaces
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> Update(int id, DataBase.Models.Hospital hospital, CancellationToken ct);
+        Task<DataBase.ViewModels.Hospital> UpdateAsync(int id, DataBase.Models.Hospital hospital, CancellationToken ct);
 
         /// <summary>
         /// Obter o Hospital pelo ID
@@ -32,14 +32,14 @@ namespace Covid_API.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Hospital> GetByIdAsync(int id, CancellationToken ct);
 
         /// <summary>
         /// Listar todos os Hospitais
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Hospital>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Hospital>> GetAllAsync(CancellationToken ct);
 
         /// <summary>
         /// Apagar o Hospital pelo ID 
@@ -47,6 +47,6 @@ namespace Covid_API.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
     }
 }

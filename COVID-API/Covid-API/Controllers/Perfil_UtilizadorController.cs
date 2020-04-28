@@ -33,7 +33,7 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> Create(
+        public Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(
             [FromBody] DataBase.Models.Perfil_Utilizador perfil_utilizador,
             CancellationToken ct
         )
@@ -48,7 +48,7 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -63,7 +63,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAll(CancellationToken ct)
+        public Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> GetById(
+        public Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -93,7 +93,7 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador actualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> Update(
+        public Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Perfil_Utilizador perfil_utilizador,
             CancellationToken ct

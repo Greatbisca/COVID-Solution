@@ -69,7 +69,7 @@ namespace GatewayTests
         [Test]
         public async Task CreateTestAsync()
         {
-            var teste = await gateway.Create(
+            var teste = await gateway.CreateAsync(
                 new DataBase.Models.Teste()
                 {
                     Tipo_Teste = "Teste COVID"
@@ -84,7 +84,7 @@ namespace GatewayTests
         [Test]
         public async Task UpdateTestAsync()
         {
-            var teste = await gateway.Update(
+            var teste = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Teste()
                 {
@@ -99,7 +99,7 @@ namespace GatewayTests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var teste = await gateway.GetById(
+            var teste = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -111,7 +111,7 @@ namespace GatewayTests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var teste = await gateway.GetAll(
+            var teste = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -123,7 +123,7 @@ namespace GatewayTests
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );

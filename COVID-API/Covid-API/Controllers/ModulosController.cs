@@ -33,7 +33,7 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Modulos> Create(
+        public Task<DataBase.ViewModels.Modulos> CreateAsync(
             [FromBody] DataBase.Models.Modulos modulos,
             CancellationToken ct
         )
@@ -49,7 +49,7 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo criado</returns>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -64,7 +64,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Modulos>> GetAll(CancellationToken ct)
+        public Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -77,7 +77,7 @@ namespace Covid_API.Controllers
         /// <returns>View do doente</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Modulos> GetById(
+        public Task<DataBase.ViewModels.Modulos> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -94,7 +94,7 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo actualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Modulos> Update(
+        public Task<DataBase.ViewModels.Modulos> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Modulos modulos,
             CancellationToken ct

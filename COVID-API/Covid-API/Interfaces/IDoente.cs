@@ -16,7 +16,7 @@ namespace Covid_API.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> Create(DataBase.Models.Doente doente, CancellationToken ct);
+        Task<DataBase.ViewModels.Doente> CreateAsync(DataBase.Models.Doente doente, CancellationToken ct);
         /// <summary>
         /// Update Doente
         /// </summary>
@@ -24,26 +24,26 @@ namespace Covid_API.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> Update(int id, DataBase.Models.Doente doente, CancellationToken ct);
+        Task<DataBase.ViewModels.Doente> UpdateAsync(int id, DataBase.Models.Doente doente, CancellationToken ct);
         /// <summary>
         /// Obter o Doente pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Doente> GetByIdAsync(int id, CancellationToken ct);
         /// <summary>
         /// Listar todos os Doentes
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Doente>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Doente>> GetAllAsync(CancellationToken ct);
         /// <summary>
         /// Apagar o Doente pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
     }
 }

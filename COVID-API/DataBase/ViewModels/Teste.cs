@@ -8,6 +8,6 @@ namespace DataBase.ViewModels
     {
         public string Tipo_Teste { get; set; }
         public DateTimeOffset Data_Teste { get; set; }
-        public string Resultado_Teste { get; set}
+        public string Resultado_Teste { get; set; }
     }
 }

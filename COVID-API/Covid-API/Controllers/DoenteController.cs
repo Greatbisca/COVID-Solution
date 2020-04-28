@@ -36,12 +36,12 @@ namespace Covid_API.Controllers
         /// <returns>View do doente criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Doente> Create(
+        public async Task<DataBase.ViewModels.Doente> CreateAsync(
             [FromBody] DataBase.Models.Doente doente, 
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _doenteServices.CreateAsync(doente, ct);
         }
 
         /// <summary>
@@ -51,12 +51,12 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public async Task DeleteAsync(
             [FromRoute] int id, 
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _doenteServices.DeleteAsync(id, ct);
         }
 
         /// <summary>
@@ -66,9 +66,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Doente>> GetAll(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Doente>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _doenteServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -79,12 +79,12 @@ namespace Covid_API.Controllers
         /// <returns>View do doente</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Doente> GetById(
+        public async Task<DataBase.ViewModels.Doente> GetByIdAsync(
             [FromRoute] int id, 
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _doenteServices.GetByIdAsync(id,ct);
         }
 
         /// <summary>
@@ -96,13 +96,13 @@ namespace Covid_API.Controllers
         /// <returns>View do doente atualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Doente> Update(
+        public async Task<DataBase.ViewModels.Doente> UpdateAsync(
             [FromRoute] int id, 
             [FromBody] DataBase.Models.Doente doente, 
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _doenteServices.UpdateAsync(id, doente, ct);
         }
     }
 }

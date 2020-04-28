@@ -14,7 +14,7 @@ namespace Covid_API.Controllers
     [ApiController]
     public class TesteController : ControllerBase, ITestes
     {
-        private ITestes _testeServices;
+        private ITesteServices _testeServices;
 
        /// <summary>
        /// Contrutor com dependency injection
@@ -33,7 +33,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Teste> Create(
+        public Task<DataBase.ViewModels.Teste> CreateAsync(
             [FromBody] DataBase.Models.Teste teste,
             CancellationToken ct
         )
@@ -48,7 +48,7 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -63,7 +63,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Teste>> GetAll(CancellationToken ct)
+        public Task<ICollection<DataBase.ViewModels.Teste>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -76,7 +76,7 @@ namespace Covid_API.Controllers
         /// <returns>View do doente</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Teste> GetById(
+        public Task<DataBase.ViewModels.Teste> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -93,7 +93,7 @@ namespace Covid_API.Controllers
         /// <returns>View do teste atualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Teste> Update(
+        public Task<DataBase.ViewModels.Teste> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Teste teste,
             CancellationToken ct

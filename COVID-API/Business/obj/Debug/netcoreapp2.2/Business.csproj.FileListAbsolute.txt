@@ -22,3 +22,15 @@ C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\Business\obj\Debug\netc
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CopyComplete
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.dll
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.pdb
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csprojAssemblyReference.cache
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CoreCompileInputs.cache
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfoInputs.cache
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfo.cs
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.dll
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.pdb
+C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.deps.json
+C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.dll
+C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.pdb
+C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.dll
+C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.pdb
+C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CopyComplete

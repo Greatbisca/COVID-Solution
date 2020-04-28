@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="teste"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> Create(DataBase.Models.Teste teste, CancellationToken ct);
+        Task<DataBase.ViewModels.Teste> CreateAsync(DataBase.Models.Teste teste, CancellationToken ct);
         /// <summary>
         /// Update Teste
         /// </summary>
@@ -23,27 +23,27 @@ namespace Covid_API.Interfaces
         /// <param name="teste"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> Update(int id, DataBase.Models.Teste teste, CancellationToken ct);
+        Task<DataBase.ViewModels.Teste> UpdateAsync(int id, DataBase.Models.Teste teste, CancellationToken ct);
         /// <summary>
         /// Obter o Teste pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Teste> GetByIdAsync(int id, CancellationToken ct);
         /// <summary>
         /// Listar todos os Testes
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Teste>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Teste>> GetAllAsync(CancellationToken ct);
         /// <summary>
         /// Apagar o Teste pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
 
     }
 }

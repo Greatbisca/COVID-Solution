@@ -5,6 +5,7 @@ using Moq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -68,7 +69,7 @@ namespace GatewayTests
         [Test]
         public async Task CreateTestAsync()
         {
-            var profissionais_saude = await gateway.Create(
+            var profissionais_saude = await gateway.CreateAsync(
                 new DataBase.Models.Profissionais_Saude()
                 {
                     Profissao = "Medico"
@@ -82,7 +83,7 @@ namespace GatewayTests
         [Test]
         public async Task UpdateTestAsync()
         {
-            var profissionais_saude = await gateway.Update(
+            var profissionais_saude = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Profissionais_Saude()
                 {
@@ -97,7 +98,7 @@ namespace GatewayTests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var profissionais_saude = await gateway.GetById(
+            var profissionais_saude = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -108,7 +109,7 @@ namespace GatewayTests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var profissionais_saude = await gateway.GetAll(
+            var profissionais_saude = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -120,7 +121,7 @@ namespace GatewayTests
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );

@@ -68,7 +68,7 @@ namespace GatewayTests
         [Test]
         public async Task CreateTestAsync()
         {
-            var modulos = await gateway.Create(
+            var modulos = await gateway.CreateAsync(
                 new DataBase.Models.Modulos()
                 {
                     Nome = "Diogo Biscaia"
@@ -82,7 +82,7 @@ namespace GatewayTests
         [Test]
         public async Task UpdateTestAsync()
         {
-            var modulos = await gateway.Update(
+            var modulos = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Modulos()
                 {
@@ -97,7 +97,7 @@ namespace GatewayTests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var modulos = await gateway.GetById(
+            var modulos = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -108,7 +108,7 @@ namespace GatewayTests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var modulos = await gateway.GetAll(
+            var modulos = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -116,11 +116,11 @@ namespace GatewayTests
         }
 
         [Test]
-        public async Task DeleteAsync()
+        public async Task DeleteTestAsync()
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );

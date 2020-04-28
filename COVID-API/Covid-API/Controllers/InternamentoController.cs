@@ -36,7 +36,7 @@ namespace Covid_API.Controllers
         /// <returns>View do internamento criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Internamento> Create(
+        public Task<DataBase.ViewModels.Internamento> CreateAsync(
             [FromBody] DataBase.Models.Internamento internamento,
             CancellationToken ct
         )
@@ -51,7 +51,7 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task Delete(
+        public Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -66,7 +66,7 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Internamento>> GetAll(CancellationToken ct)
+        public Task<ICollection<DataBase.ViewModels.Internamento>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -79,7 +79,7 @@ namespace Covid_API.Controllers
         /// <returns>View do internamento</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Internamento> GetById(
+        public Task<DataBase.ViewModels.Internamento> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
@@ -96,7 +96,7 @@ namespace Covid_API.Controllers
         /// <returns>View do internamento actualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Internamento> Update(
+        public Task<DataBase.ViewModels.Internamento> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Internamento internamento,
             CancellationToken ct

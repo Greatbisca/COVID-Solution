@@ -1,5 +1,6 @@
 ﻿using Business.Interfaces;
 using Covid_API.Controllers;
+using Covid_API.Interfaces;
 using Microsoft.EntityFrameworkCore.Internal;
 using Moq;
 using NUnit.Framework;
@@ -14,7 +15,7 @@ namespace GatewayTests
 {
     public class HospitalTest
     {
-        IHospitalServices gateway;
+        IHospital gateway;
 
         [SetUp]
 
@@ -135,4 +136,5 @@ namespace GatewayTests
                 Assert.IsTrue(true);
             }
         }
+    }
 }

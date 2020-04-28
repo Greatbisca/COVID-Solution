@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="perfil_utilizador"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> Create(DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct);
+        Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct);
         /// <summary>
         /// Update Perfil de Utilizador
         /// </summary>
@@ -23,26 +23,26 @@ namespace Covid_API.Interfaces
         /// <param name="perfil_utilizador"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> Update(int id, DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct);
+        Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(int id, DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct);
         /// <summary>
         /// Obter o Perfil de Utilizador pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> GetById(int id, CancellationToken ct);
+        Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(int id, CancellationToken ct);
         /// <summary>
         /// Listar todos os Perfis de Utilizadores
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAll(CancellationToken ct);
+        Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct);
         /// <summary>
         /// Apagar o Perfil de Utilizador pelo ID
         /// </summary>
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task Delete(int id, CancellationToken ct);
+        Task DeleteAsync(int id, CancellationToken ct);
     }
 }

@@ -8,7 +8,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Tests
+namespace GatewayTests
 {
     public class DoentesTest
     {
@@ -66,7 +66,7 @@ namespace Tests
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await gateway.Create(
+            var doente = await gateway.CreateAsync(
                 new DataBase.Models.Doente()
                 {
                     Nome = "Diogo Biscaia"
@@ -74,13 +74,13 @@ namespace Tests
                 CancellationToken.None
             );
 
-            Assert.Equals(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await gateway.Update(
+            var doente = await gateway.UpdateAsync(
                 1,
                 new DataBase.Models.Doente()
                 {
@@ -95,7 +95,7 @@ namespace Tests
         [Test]
         public async Task GetByIdTestAsync()
         {
-            var doente = await gateway.GetById(
+            var doente = await gateway.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -106,7 +106,7 @@ namespace Tests
         [Test]
         public async Task GetAllTestAsync()
         {
-            var doentes = await gateway.GetAll(
+            var doentes = await gateway.GetAllAsync(
                 CancellationToken.None
             );
 
@@ -114,11 +114,11 @@ namespace Tests
         }
 
         [Test]
-        public async Task DeleteAsync()
+        public async Task DeleteTestAsync()
         {
             try
             {
-                await gateway.Delete(
+                await gateway.DeleteAsync(
                     1,
                     CancellationToken.None
                 );
