@@ -78,7 +78,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(hospital.Nome, "S.Joao");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
         [Test]
@@ -93,7 +93,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(hospital.Nome, "S.Joao");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(hospital.Nome, "S.Joao");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
         [Test]

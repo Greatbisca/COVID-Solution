@@ -89,7 +89,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -100,7 +100,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
         }
 
         [Test]

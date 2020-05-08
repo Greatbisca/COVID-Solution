@@ -100,7 +100,7 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _modulosServices.UpdateAsync(id, ct);
+            return await _modulosServices.UpdateAsync(id, modulos, ct);
         }
     }
 }

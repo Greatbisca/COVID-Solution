@@ -46,7 +46,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(token, "AUTHENTICATION_TOKEN");
+            Assert.AreEqual(token, "AUTHENTICATION_TOKEN");
         }
     }
 }

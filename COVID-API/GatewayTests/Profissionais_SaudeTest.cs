@@ -77,7 +77,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]

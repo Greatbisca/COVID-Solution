@@ -33,12 +33,12 @@ namespace Covid_API.Controllers
         /// <returns>Token de autenticação</returns>
         [HttpPost]
         [Route("")]
-        public Task<string> LoginAsync(
+        public async Task<string> LoginAsync(
             [FromBody] DataBase.Models.LoginRequestModel login,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _utilizadoresServices.ValidateLoginAsync(login.Username, login.Password, ct);
         }
     }
 }

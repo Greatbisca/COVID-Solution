@@ -76,7 +76,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -91,7 +91,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -102,7 +102,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(modulos.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
         [Test]

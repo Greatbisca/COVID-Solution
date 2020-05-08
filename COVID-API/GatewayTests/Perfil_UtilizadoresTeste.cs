@@ -77,7 +77,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(perfil_utilizador.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]

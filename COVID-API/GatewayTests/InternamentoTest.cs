@@ -77,7 +77,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(internamento.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(internamento.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(internamento.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
         }
 
         [Test]

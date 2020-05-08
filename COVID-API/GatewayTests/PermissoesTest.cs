@@ -100,7 +100,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
         }
 
 
@@ -121,14 +121,14 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.Equals(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetByIdTestAsync()
         {
             var permissao = await gateway.GetByIdAsync(1, CancellationToken.None);
-            Assert.Equals(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
         }
 
         [Test]
