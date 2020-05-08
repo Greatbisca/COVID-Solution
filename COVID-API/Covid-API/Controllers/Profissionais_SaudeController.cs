@@ -33,12 +33,12 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional saude criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(
+        public async Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(
             [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _profissionais_saudeServices.CreateAsync(profissionais_saude, ct);
         }
 
         /// <summary>
@@ -48,12 +48,12 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(
+        public async Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _profissionais_saudeServices.DeleteAsync(id, ct);
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _profissionais_saudeServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -76,12 +76,12 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional de saude</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(
+        public async Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _profissionais_saudeServices.GetByIdAsync(id, ct);
         }
 
         /// <summary>
@@ -93,13 +93,13 @@ namespace Covid_API.Controllers
         /// <returns>View do profissional de saude atualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(
+        public async Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _profissionais_saudeServices.UpdateAsync(id, profissionais_saude, ct);
         }
     }
 }

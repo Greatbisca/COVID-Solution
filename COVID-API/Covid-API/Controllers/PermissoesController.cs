@@ -33,12 +33,12 @@ namespace Covid_API.Controllers
         /// <returns>View da permissao criada</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Permissoes> CreateAsync(
+        public async Task<DataBase.ViewModels.Permissoes> CreateAsync(
             [FromBody] DataBase.Models.Permissoes permissoes,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _permissoesServices.CreateAsync(permissoes, ct);
         }
 
         /// <summary>
@@ -48,12 +48,12 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(
+        public async Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _permissoesServices.DeleteAsync(id, ct);
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Permissoes>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Permissoes>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _permissoesServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -76,12 +76,12 @@ namespace Covid_API.Controllers
         /// <returns>View da permissao</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Permissoes> GetByIdAsync(
+        public async Task<DataBase.ViewModels.Permissoes> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _permissoesServices.GetByIdAsync(id, ct);
         }
 
         /// <summary>
@@ -93,13 +93,13 @@ namespace Covid_API.Controllers
         /// <returns>View da permissao atualizada</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Permissoes> UpdateAsync(
+        public async Task<DataBase.ViewModels.Permissoes> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Permissoes permissoes,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _permissoesServices.UpdateAsync(id, permissoes, ct);
         }
     }
 }

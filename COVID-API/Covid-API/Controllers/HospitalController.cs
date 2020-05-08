@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using DataBase.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -36,12 +37,12 @@ namespace Covid_API.Controllers
         /// <returns>View do hospital criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Hospital> CreateAsync(
+        public async Task<DataBase.ViewModels.Hospital> CreateAsync(
             [FromBody] DataBase.Models.Hospital hospital,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _hospitalServices.CreateAsync(hospital, ct);
         }
 
         /// <summary>
@@ -52,12 +53,12 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(
+        public async Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _hospitalServices.DeleteAsync(id,ct);
         }
 
         /// <summary>
@@ -67,9 +68,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Hospital>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Hospital>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _hospitalServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -80,12 +81,12 @@ namespace Covid_API.Controllers
         /// <returns>View do hospital</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Hospital> GetByIdAsync(
+        public async Task<DataBase.ViewModels.Hospital> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _hospitalServices.GetByIdAsync(id, ct);
         }
 
         /// <summary>
@@ -97,13 +98,13 @@ namespace Covid_API.Controllers
         /// <returns>View do hospital atualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Hospital> UpdateAsync(
+        public async Task<DataBase.ViewModels.Hospital> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Hospital hospital,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _hospitalServices.UpdateAsync(id, hospital, ct);
         }
     }
 }

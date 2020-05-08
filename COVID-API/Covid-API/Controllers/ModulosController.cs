@@ -33,12 +33,12 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo criado</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Modulos> CreateAsync(
+        public async Task<DataBase.ViewModels.Modulos> CreateAsync(
             [FromBody] DataBase.Models.Modulos modulos,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _modulosServices.CreateAsync(modulos, ct);
         }
 
         /// <summary>
@@ -49,12 +49,12 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo criado</returns>
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(
+        public async Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _modulosServices.DeleteAsync(id, ct);
         }
 
         /// <summary>
@@ -64,9 +64,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _modulosServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -77,12 +77,12 @@ namespace Covid_API.Controllers
         /// <returns>View do doente</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Modulos> GetByIdAsync(
+        public async Task<DataBase.ViewModels.Modulos> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _modulosServices.GetByIdAsync(id, ct);
         }
 
         /// <summary>
@@ -94,13 +94,13 @@ namespace Covid_API.Controllers
         /// <returns>View do modulo actualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Modulos> UpdateAsync(
+        public async Task<DataBase.ViewModels.Modulos> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Modulos modulos,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _modulosServices.UpdateAsync(id, ct);
         }
     }
 }

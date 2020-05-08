@@ -33,12 +33,12 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador</returns>
         [HttpPost]
         [Route("")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(
+        public async Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(
             [FromBody] DataBase.Models.Perfil_Utilizador perfil_utilizador,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _perfil_utilizadorServices.CreateAsync(perfil_utilizador, ct);
         }
 
         /// <summary>
@@ -48,12 +48,12 @@ namespace Covid_API.Controllers
         /// <param name="ct"></param>
         [HttpDelete]
         [Route("{id}")]
-        public Task DeleteAsync(
+        public async Task DeleteAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            await _perfil_utilizadorServices.DeleteAsync(id, ct);
         }
 
         /// <summary>
@@ -63,9 +63,9 @@ namespace Covid_API.Controllers
         /// <returns></returns>
         [HttpGet]
         [Route("")]
-        public Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await _perfil_utilizadorServices.GetAllAsync(ct);
         }
 
         /// <summary>
@@ -76,12 +76,12 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador</returns>
         [HttpGet]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(
+        public async Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(
             [FromRoute] int id,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _perfil_utilizadorServices.GetByIdAsync(id, ct);
         }
 
         /// <summary>
@@ -93,13 +93,13 @@ namespace Covid_API.Controllers
         /// <returns>View do perfil utilizador actualizado</returns>
         [HttpPut]
         [Route("{id}")]
-        public Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(
+        public async Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(
             [FromRoute] int id,
             [FromBody] DataBase.Models.Perfil_Utilizador perfil_utilizador,
             CancellationToken ct
         )
         {
-            throw new NotImplementedException();
+            return await _perfil_utilizadorServices.UpdateAsync(id, perfil_utilizador, ct);
         }
     }
 }
