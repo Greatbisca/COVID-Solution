@@ -28,7 +28,7 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
             {
-                Nome = "Joaquim da Siva"
+                Nome = "Joaquim da Silva"
             });
 
             Profissionais_SaudeServices.Setup(x => x.UpdateAsync(
@@ -46,7 +46,7 @@ namespace GatewayTests
             )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
             {
                 Nome = "Joaquim da Silva"
-            });
+            }); 
 
             Profissionais_SaudeServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
@@ -77,7 +77,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
         }
 
         [Test]
@@ -92,7 +92,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
         }
 
         [Test]
@@ -103,7 +103,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
+            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
         }
 
         [Test]
@@ -113,7 +113,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Joaquim da Silva"));
         }
 
         [Test]

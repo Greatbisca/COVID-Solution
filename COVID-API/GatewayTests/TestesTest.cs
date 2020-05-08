@@ -77,7 +77,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(teste.Tipo_Teste, "Teste COVID");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
         }
 
 
@@ -93,7 +93,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(teste.Tipo_Teste, "Teste COVID");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(teste.Tipo_Teste, "Teste COVID");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
 
         }
 
@@ -115,7 +115,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(teste.Any(x => x.Tipo_Teste == "Teste COVID"));
+            Assert.IsTrue(teste.Any(x => x.Resultado_Teste == "Positivo"));
         }
 
         [Test]
