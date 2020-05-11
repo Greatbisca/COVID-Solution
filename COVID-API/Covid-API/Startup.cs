@@ -6,6 +6,8 @@ using Business;
 using Business.Interfaces;
 using Covid_API.Controllers;
 using Covid_API.Interfaces;
+using DataBase.Models;
+using DataBase.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -51,6 +53,8 @@ namespace Covid_API
             services.AddScoped<IProfissionais_SaudeServices, Profissionais_SaudeServices>();
             services.AddScoped<ITesteServices, TesteServices>();
             services.AddScoped<IUtilizadoresServices, UtilizadoresServices>();
+
+            services.AddScoped<IRepository<Doente>, DoentesRepository>();
 
 
         }

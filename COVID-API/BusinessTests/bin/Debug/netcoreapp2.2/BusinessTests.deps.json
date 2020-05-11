@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v2.2": {
       "BusinessTests/1.0.0": {
         "dependencies": {
+          "Business": "1.0.0",
           "Microsoft.NET.Test.Sdk": "15.9.0",
           "NUnit3TestAdapter": "3.11.0",
           "NUnit": "3.11.0"
@@ -976,6 +977,19 @@
             "fileVersion": "4.6.24705.1"
           }
         }
+      },
+      "Business/1.0.0": {
+        "dependencies": {
+          "DataBase": "1.0.0"
+        },
+        "runtime": {
+          "Business.dll": {}
+        }
+      },
+      "DataBase/1.0.0": {
+        "runtime": {
+          "DataBase.dll": {}
+        }
       }
     }
   },
@@ -1481,6 +1495,16 @@
       "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
+    },
+    "Business/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DataBase/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

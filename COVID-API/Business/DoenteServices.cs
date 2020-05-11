@@ -1,10 +1,12 @@
 ﻿using Business.Interfaces;
 using DataBase.Models;
+using DataBase.Repository;
 using DataBase.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Doente = DataBase.Models.Doente;
 
 namespace Business
 {
@@ -13,6 +15,17 @@ namespace Business
     /// </summary>
     public class DoenteServices : IDoenteServices
     {
+        private IRepository<Doente> _doenteRepository;
+
+        /// <summary>
+        /// Construtor com Dependency Injection
+        /// </summary>
+        /// <param name="doenteRepository"></param>
+        public DoenteServices(IRepository<Doente> doenteRepository)
+        {
+            _doenteRepository = doenteRepository;
+        }
+
         /// <summary>
         /// Serviço para a criação de doente
         /// </summary>
