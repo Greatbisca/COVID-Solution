@@ -2,6 +2,7 @@
 using Business.Interfaces;
 using DataBase.Models;
 using DataBase.Repository;
+using DataBase.ViewModels;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -10,112 +11,111 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Hospital = DataBase.Models.Hospital;
 
 namespace BusinessTests
 {
-    public class DoenteTest
+    public class HospitalTest
     {
-        IDoenteServices business;
-
+        IHospitalServices business;
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IRepository<Doente>> doenteRepository = new Mock<IRepository<Doente>>();
-            //Comportamento para criar o Doente
-            doenteRepository.Setup(x => x.CreateAsync(
-                It.IsAny<Doente>(),
+            Mock<IRepository<Hospital>> hospitalRepository = new Mock<IRepository<Hospital>>();
+            //Comportamento para criar o Hospital
+            hospitalRepository.Setup(x => x.CreateAsync(
+                It.IsAny<Hospital>(),
+                    CancellationToken.None
+                )).ReturnsAsync(new Hospital()
+                {
+                    Nome = "S.Joao"
+                });
+
+            hospitalRepository.Setup(x => x.UpdateAsync(
+                It.IsAny<Hospital>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Hospital()
             {
-                Nome = "Diogo Biscaia"
+                Nome = "S.Joao"
             });
 
-            doenteRepository.Setup(x => x.UpdateAsync(
-              It.IsAny<Doente>(),
-              CancellationToken.None
-          )).ReturnsAsync(new Doente()
-          {
-              Nome = "Diogo Biscaia"
-          });
-
-            doenteRepository.Setup(x => x.GetAsync(
+            hospitalRepository.Setup(x => x.GetAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Hospital()
             {
-                Nome = "Diogo Biscaia"
+                Nome = "S.Joao"
             });
 
-            doenteRepository.Setup(x => x.GetAllAsync(
+            hospitalRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<Doente>()
+            )).ReturnsAsync(new List<Hospital>()
             {
-                new Doente()
+                new Hospital()
                 {
-                    Nome = "Diogo Biscaia"
+                    Nome = "S.Joao"
                 }
             });
 
-            doenteRepository.Setup(x => x.DeleteAsync(
-                It.IsAny<Doente>(),
+            hospitalRepository.Setup(x => x.DeleteAsync(
+                It.IsAny<Hospital>(),
                 CancellationToken.None
             ));
-
-        #endregion
-        business = new DoenteServices(doenteRepository.Object);
+            #endregion
+            business = new HospitalServices(hospitalRepository.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await business.CreateAsync(
-                new Doente()
+            var hospital = await business.CreateAsync(
+                new Hospital()
                 {
-                    Nome = "Diogo Biscaia"
+                    Nome = "S.Joao"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await business.UpdateAsync(
+            var hospital = await business.UpdateAsync(
                 1,
-                new Doente()
+                new Hospital()
                 {
-                    Nome = "Diogo Biscaia"
+                    Nome = "S.Joao"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var doente = await business.GetByIdAsync(
+            var hospital = await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(hospital.Nome, "S.Joao");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var doentes = await business.GetAllAsync(
+            var hospital = await business.GetAllAsync(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(hospital.Any(x => x.Nome == "S.Joao"));
         }
 
         [Test]
@@ -137,5 +137,6 @@ namespace BusinessTests
                 Assert.IsTrue(true);
             }
         }
+
     }
 }

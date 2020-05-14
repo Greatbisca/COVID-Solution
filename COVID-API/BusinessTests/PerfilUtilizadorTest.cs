@@ -2,6 +2,7 @@
 using Business.Interfaces;
 using DataBase.Models;
 using DataBase.Repository;
+using DataBase.ViewModels;
 using Moq;
 using NUnit.Framework;
 using System;
@@ -10,112 +11,112 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Perfil_Utilizador = DataBase.Models.Perfil_Utilizador;
 
 namespace BusinessTests
 {
-    public class DoenteTest
+    public class PerfilUtilizadorTest
     {
-        IDoenteServices business;
-
+        IPerfil_UtilizadoresServices business;
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IRepository<Doente>> doenteRepository = new Mock<IRepository<Doente>>();
-            //Comportamento para criar o Doente
-            doenteRepository.Setup(x => x.CreateAsync(
-                It.IsAny<Doente>(),
+            Mock<IRepository<Perfil_Utilizador>> perfil_utilizadorRepository = new Mock<IRepository<Perfil_Utilizador>>();
+            //Comportamento para criar o Perfil Utilizador
+            perfil_utilizadorRepository.Setup(x => x.CreateAsync(
+                It.IsAny<Perfil_Utilizador>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            doenteRepository.Setup(x => x.UpdateAsync(
-              It.IsAny<Doente>(),
+            perfil_utilizadorRepository.Setup(x => x.UpdateAsync(
+              It.IsAny<Perfil_Utilizador>(),
               CancellationToken.None
-          )).ReturnsAsync(new Doente()
+          )).ReturnsAsync(new Perfil_Utilizador()
           {
               Nome = "Diogo Biscaia"
           });
 
-            doenteRepository.Setup(x => x.GetAsync(
+            perfil_utilizadorRepository.Setup(x => x.GetAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            doenteRepository.Setup(x => x.GetAllAsync(
+            perfil_utilizadorRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<Doente>()
+            )).ReturnsAsync(new List<Perfil_Utilizador>()
             {
-                new Doente()
+                new Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 }
             });
 
-            doenteRepository.Setup(x => x.DeleteAsync(
-                It.IsAny<Doente>(),
+            perfil_utilizadorRepository.Setup(x => x.DeleteAsync(
+                It.IsAny<Perfil_Utilizador>(),
                 CancellationToken.None
             ));
 
-        #endregion
-        business = new DoenteServices(doenteRepository.Object);
+            #endregion
+            business = new Perfil_UtilizadorServices(perfil_utilizadorRepository.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await business.CreateAsync(
-                new Doente()
+            var perfil_utilziador = await business.CreateAsync(
+                new Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilziador.Nome, "Diogo Biscaia");
         }
 
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await business.UpdateAsync(
+            var perfil_utilizador = await business.UpdateAsync(
                 1,
-                new Doente()
+                new Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var doente = await business.GetByIdAsync(
+            var perfil_utilizador = await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(perfil_utilizador.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var doentes = await business.GetAllAsync(
+            var perfil_utilizador = await business.GetAllAsync(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(perfil_utilizador.Any(x => x.Nome == "Diogo Biscaia"));
         }
 
         [Test]

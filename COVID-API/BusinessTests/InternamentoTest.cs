@@ -13,99 +13,98 @@ using System.Threading.Tasks;
 
 namespace BusinessTests
 {
-    public class DoenteTest
+    public class InternamentoTest
     {
-        IDoenteServices business;
-
+        IInternamentoServices business;
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IRepository<Doente>> doenteRepository = new Mock<IRepository<Doente>>();
+            Mock<IRepository<Internamento>> internamentoRepository = new Mock<IRepository<Internamento>>();
             //Comportamento para criar o Doente
-            doenteRepository.Setup(x => x.CreateAsync(
-                It.IsAny<Doente>(),
+            internamentoRepository.Setup(x => x.CreateAsync(
+                It.IsAny<Internamento>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Internamento()
             {
-                Nome = "Diogo Biscaia"
+                Id_Doente = 12345
             });
 
-            doenteRepository.Setup(x => x.UpdateAsync(
-              It.IsAny<Doente>(),
+            internamentoRepository.Setup(x => x.UpdateAsync(
+              It.IsAny<Internamento>(),
               CancellationToken.None
-          )).ReturnsAsync(new Doente()
+          )).ReturnsAsync(new Internamento()
           {
-              Nome = "Diogo Biscaia"
+               Id_Doente = 12345
           });
 
-            doenteRepository.Setup(x => x.GetAsync(
+            internamentoRepository.Setup(x => x.GetAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Internamento()
             {
-                Nome = "Diogo Biscaia"
+                Id_Doente = 12345
             });
 
-            doenteRepository.Setup(x => x.GetAllAsync(
+            internamentoRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<Doente>()
+            )).ReturnsAsync(new List<Internamento>()
             {
-                new Doente()
+                new Internamento()
                 {
-                    Nome = "Diogo Biscaia"
+                  Id_Doente = 12345
                 }
             });
 
-            doenteRepository.Setup(x => x.DeleteAsync(
-                It.IsAny<Doente>(),
+            internamentoRepository.Setup(x => x.DeleteAsync(
+                It.IsAny<Internamento>(),
                 CancellationToken.None
             ));
 
-        #endregion
-        business = new DoenteServices(doenteRepository.Object);
+            #endregion
+            business = new InternamentoServices(internamentoRepository.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await business.CreateAsync(
-                new Doente()
+            var internamento = await business.CreateAsync(
+                new Internamento()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id_Doente = 12345
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
         }
 
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await business.UpdateAsync(
+            var internanemto = await business.UpdateAsync(
                 1,
-                new Doente()
+                new Internamento()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id_Doente = 12345
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(internanemto.Nome_Doente, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var doente = await business.GetByIdAsync(
+            var internamento = await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
         }
 
         [Test]
@@ -115,7 +114,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(doentes.Any(x => x.Nome_Doente == "Diogo Biscaia"));
         }
 
         [Test]
@@ -137,5 +136,6 @@ namespace BusinessTests
                 Assert.IsTrue(true);
             }
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -65,5 +66,6 @@ namespace Business.Interfaces
             int id,
             CancellationToken ct
         );
+        Task CreateAsync(Profissionais_Saude profissionais_Saude, CancellationToken none);
     }
 }

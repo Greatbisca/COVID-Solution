@@ -13,109 +13,109 @@ using System.Threading.Tasks;
 
 namespace BusinessTests
 {
-    public class DoenteTest
+    public class ModulosTest
     {
-        IDoenteServices business;
+        IModulosServices business;
 
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IRepository<Doente>> doenteRepository = new Mock<IRepository<Doente>>();
-            //Comportamento para criar o Doente
-            doenteRepository.Setup(x => x.CreateAsync(
-                It.IsAny<Doente>(),
+            Mock<IRepository<Modulos>> modulosRepository = new Mock<IRepository<Modulos>>();
+            //Comportamento para criar o Modulo
+            modulosRepository.Setup(x => x.CreateAsync(
+                It.IsAny<Modulos>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Modulos()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            doenteRepository.Setup(x => x.UpdateAsync(
-              It.IsAny<Doente>(),
+            modulosRepository.Setup(x => x.UpdateAsync(
+              It.IsAny<Modulos>(),
               CancellationToken.None
-          )).ReturnsAsync(new Doente()
+          )).ReturnsAsync(new Modulos()
           {
               Nome = "Diogo Biscaia"
           });
 
-            doenteRepository.Setup(x => x.GetAsync(
+            modulosRepository.Setup(x => x.GetAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Modulos()
             {
                 Nome = "Diogo Biscaia"
             });
 
-            doenteRepository.Setup(x => x.GetAllAsync(
+            modulosRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<Doente>()
+            )).ReturnsAsync(new List<Modulos>()
             {
-                new Doente()
+                new Modulos()
                 {
                     Nome = "Diogo Biscaia"
                 }
             });
 
-            doenteRepository.Setup(x => x.DeleteAsync(
-                It.IsAny<Doente>(),
+            modulosRepository.Setup(x => x.DeleteAsync(
+                It.IsAny<Modulos>(),
                 CancellationToken.None
             ));
 
-        #endregion
-        business = new DoenteServices(doenteRepository.Object);
+            #endregion
+            business = new ModulosServices(modulosRepository.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await business.CreateAsync(
-                new Doente()
+            var modulos = await business.CreateAsync(
+                new Modulos()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await business.UpdateAsync(
+            var modulos = await business.UpdateAsync(
                 1,
-                new Doente()
+                new Modulos()
                 {
                     Nome = "Diogo Biscaia"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var doente = await business.GetByIdAsync(
+            var modulos = await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(modulos.Nome, "Diogo Biscaia");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var doentes = await business.GetAllAsync(
+            var modulos = await business.GetAllAsync(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(modulos.Any(x => x.Nome == "Diogo Biscaia"));
         }
 
         [Test]

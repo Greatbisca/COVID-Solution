@@ -1,4 +1,6 @@
 ﻿using Business.Interfaces;
+using DataBase.Models;
+using DataBase.Repository;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,6 +11,17 @@ namespace Business
 {
     public class ModulosServices : IModulosServices
     {
+        private IRepository<Modulos> _modulosRepository;
+
+        /// <summary>
+        /// Construtor com Dependency Injection
+        /// </summary>
+        /// <param name="modulosRepository"></param>
+        public ModulosServices(IRepository<Modulos> modulosRepository)
+        {
+            _modulosRepository = modulosRepository;
+        }
+
         public Task<DataBase.ViewModels.Modulos> CreateAsync(DataBase.Models.Modulos modulos, CancellationToken ct)
         {
             throw new NotImplementedException();

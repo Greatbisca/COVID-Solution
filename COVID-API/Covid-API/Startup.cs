@@ -55,8 +55,14 @@ namespace Covid_API
             services.AddScoped<IUtilizadoresServices, UtilizadoresServices>();
 
             services.AddScoped<IRepository<Doente>, DoentesRepository>();
-
-
+            services.AddScoped<IRepository<Hospital>, HospitalRepository>();
+            services.AddScoped<IRepository<Internamento>, InternamentoRepository>();
+            services.AddScoped<IRepository<Modulos>, ModulosRepository>();
+            services.AddScoped<IRepository<Perfil_Utilizador>, Perfil_UtilizadorRepository>();
+            services.AddScoped<IRepository<Permissoes>, PermissoesRepository>();
+            services.AddScoped<IRepository<Profissionais_Saude>, Profissionais_SaudeRepository>();
+            services.AddScoped<IRepository<Teste>, TestesRepository>();
+            services.AddScoped<IRepository<Utilizadores>, UtilizadoresRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

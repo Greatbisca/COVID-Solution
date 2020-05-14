@@ -80,7 +80,7 @@ namespace Business
         }
 
         /// <summary>
-        /// Serviço para a actualização dos dados de um doente
+        /// Serviço para a atualização dos dados de um doente
         /// </summary>
         /// <param name="id">Identificador do doente</param>
         /// <param name="doente">Dados do doente para gravar</param>

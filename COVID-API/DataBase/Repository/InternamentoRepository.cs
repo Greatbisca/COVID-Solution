@@ -7,30 +7,29 @@ using System.Threading.Tasks;
 
 namespace DataBase.Repository
 {
-    public class DoentesRepository : IRepository<Doente>
+    public class InternamentoRepository : IRepository<Internamento>
     {
-        
-        public Task<Doente> CreateAsync(Doente entity, CancellationToken ct)
+        public Task<Internamento> CreateAsync(Internamento entity, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task DeleteAsync(Doente entity, CancellationToken ct)
+        public Task DeleteAsync(Internamento entity, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<Doente>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Internamento>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Doente> GetAsync(int id, CancellationToken ct)
+        public Task<Internamento> GetAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<Doente> UpdateAsync(Doente entity, CancellationToken ct)
+        public Task<Internamento> UpdateAsync(Internamento entity, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

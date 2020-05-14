@@ -13,109 +13,108 @@ using System.Threading.Tasks;
 
 namespace BusinessTests
 {
-    public class DoenteTest
+    public class TestesTest
     {
-        IDoenteServices business;
-
+        ITesteServices business;
 
         [SetUp]
         public void Setup()
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
-            Mock<IRepository<Doente>> doenteRepository = new Mock<IRepository<Doente>>();
+            Mock<IRepository<Teste>> testeRepository = new Mock<IRepository<Teste>>();
             //Comportamento para criar o Doente
-            doenteRepository.Setup(x => x.CreateAsync(
-                It.IsAny<Doente>(),
+            testeRepository.Setup(x => x.CreateAsync(
+                It.IsAny<Teste>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Teste()
             {
-                Nome = "Diogo Biscaia"
+                Resultado_Teste = "Positivo"
             });
 
-            doenteRepository.Setup(x => x.UpdateAsync(
-              It.IsAny<Doente>(),
+            testeRepository.Setup(x => x.UpdateAsync(
+              It.IsAny<Teste>(),
               CancellationToken.None
-          )).ReturnsAsync(new Doente()
+          )).ReturnsAsync(new Teste()
           {
-              Nome = "Diogo Biscaia"
+              Resultado_Teste = "Positivo"
           });
 
-            doenteRepository.Setup(x => x.GetAsync(
+            testeRepository.Setup(x => x.GetAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new Doente()
+            )).ReturnsAsync(new Teste()
             {
-                Nome = "Diogo Biscaia"
+                Resultado_Teste = "Positivo"
             });
 
-            doenteRepository.Setup(x => x.GetAllAsync(
+            testeRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<Doente>()
+            )).ReturnsAsync(new List<Teste>()
             {
-                new Doente()
+                new Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                   Resultado_Teste = "Positivo"
                 }
             });
 
-            doenteRepository.Setup(x => x.DeleteAsync(
-                It.IsAny<Doente>(),
+            testeRepository.Setup(x => x.DeleteAsync(
+                It.IsAny<Teste>(),
                 CancellationToken.None
             ));
 
-        #endregion
-        business = new DoenteServices(doenteRepository.Object);
+            #endregion
+            business = new TesteServices(testeRepository.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
-            var doente = await business.CreateAsync(
-                new Doente()
+            var teste = await business.CreateAsync(
+                new Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                    Tipo_Teste = "Teste COVID"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
         }
 
 
         [Test]
         public async Task UpdateTestAsync()
         {
-            var doente = await business.UpdateAsync(
+            var teste = await business.UpdateAsync(
                 1,
-                new Doente()
+                new Teste()
                 {
-                    Nome = "Diogo Biscaia"
+                    Tipo_Teste = "Teste COVID"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(teste.Resultado_Teste ,"Positivo");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var doente = await business.GetByIdAsync(
+            var teste= await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
-            var doentes = await business.GetAllAsync(
+            var teste = await business.GetAllAsync(
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(teste.Any(x => x.Resultado_Teste == "Positivo"));
         }
 
         [Test]
@@ -137,5 +136,4 @@ namespace BusinessTests
                 Assert.IsTrue(true);
             }
         }
-    }
 }
