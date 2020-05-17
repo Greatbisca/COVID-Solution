@@ -28,7 +28,7 @@ namespace Business
         /// <param name="permissoes">Objeto Permissao para a criaçao na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao criada</returns>
-        public Task<DataBase.ViewModels.Permissoes> CreateAsync(DataBase.Models.Permissoes permissoes, CancellationToken ct)
+        public Task<Permissoes> CreateAsync(Permissoes permissoes, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -49,7 +49,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de permissoes</returns>
-        public Task<ICollection<DataBase.ViewModels.Permissoes>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Permissoes>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -60,7 +60,7 @@ namespace Business
         /// <param name="id">Identificador da permissao</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao</returns>
-        public Task<DataBase.ViewModels.Permissoes> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Permissoes> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -72,7 +72,7 @@ namespace Business
         /// <param name="permissoes">Dados da permissao para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao</returns>
-        public Task<DataBase.ViewModels.Permissoes> UpdateAsync(int id, DataBase.Models.Permissoes permissoes, CancellationToken ct)
+        public Task<Permissoes> UpdateAsync(int id, Permissoes permissoes, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

@@ -26,7 +26,7 @@ namespace GatewayTests
             TesteServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Teste>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Teste()
+            )).ReturnsAsync(new DataBase.Models.Teste()
             {
                 Resultado_Teste = "Positivo"
             });
@@ -35,7 +35,7 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Teste>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Teste()
+            )).ReturnsAsync(new DataBase.Models.Teste()
             {
                 Resultado_Teste = "Positivo"
             });
@@ -43,16 +43,16 @@ namespace GatewayTests
             TesteServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Teste()
+            )).ReturnsAsync(new DataBase.Models.Teste()
             {
                 Resultado_Teste = "Positivo"
             });
 
             TesteServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Teste>()
+            )).ReturnsAsync(new List<DataBase.Models.Teste>()
             {
-                new DataBase.ViewModels.Teste()
+                new DataBase.Models.Teste()
                 {
                     Resultado_Teste = "Positivo"
                 }

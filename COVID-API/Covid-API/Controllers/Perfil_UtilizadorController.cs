@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using Covid_API.Mappings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +39,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _perfil_utilizadorServices.CreateAsync(perfil_utilizador, ct);
+            var result = await _perfil_utilizadorServices.CreateAsync(perfil_utilizador, ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -65,7 +67,8 @@ namespace Covid_API.Controllers
         [Route("")]
         public async Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
         {
-            return await _perfil_utilizadorServices.GetAllAsync(ct);
+            var result = await _perfil_utilizadorServices.GetAllAsync(ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -81,7 +84,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _perfil_utilizadorServices.GetByIdAsync(id, ct);
+            var result = await _perfil_utilizadorServices.GetByIdAsync(id, ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -99,7 +103,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _perfil_utilizadorServices.UpdateAsync(id, perfil_utilizador, ct);
+            var result = await _perfil_utilizadorServices.UpdateAsync(id, perfil_utilizador, ct);
+            return result.ToViewModel();
         }
     }
 }

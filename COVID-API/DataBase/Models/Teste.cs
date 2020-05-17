@@ -11,5 +11,7 @@ namespace DataBase.Models
         public int Id_Profissional { get; set; }
         public DateTimeOffset Data_Teste { get; set; }
         public string Tipo_Teste { get; set; }
+
+        public string Resultado_Teste { get; set; }
     }
 }

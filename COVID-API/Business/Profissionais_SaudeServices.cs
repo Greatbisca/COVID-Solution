@@ -1,6 +1,6 @@
 ﻿using Business.Interfaces;
 using DataBase.Repository;
-using DataBase.ViewModels;
+using DataBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -31,7 +31,7 @@ namespace Business
         /// <param name="profissionais_saude">Identificador para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do doente criado</returns>
-        public Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(DataBase.Models.Profissionais_Saude profissionais_saude, CancellationToken ct)
+        public Task<Profissionais_Saude> CreateAsync(Profissionais_Saude profissionais_saude, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de profissionais de saude</returns>
-        public Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Profissionais_Saude>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace Business
         /// <param name="id">Identificador de um profissional de saude</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do profissional de saude</returns>
-        public Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Profissionais_Saude> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -74,7 +74,7 @@ namespace Business
         /// <param name="profissionais_saude">Dados do profissional de saude para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do profissional de saude</returns>
-        public Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(int id, DataBase.Models.Profissionais_Saude profissionais_saude, CancellationToken ct)
+        public Task<Profissionais_Saude> UpdateAsync(int id, Profissionais_Saude profissionais_saude, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

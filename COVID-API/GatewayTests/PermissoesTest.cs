@@ -21,14 +21,18 @@ namespace GatewayTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IPermissoesServices> PermissoesServices = new Mock<IPermissoesServices>();
+            Mock<IModulosServices> ModulosServices = new Mock<IModulosServices>();
+            Mock<IPerfil_UtilizadoresServices> PerfilUtilizadoresServices = new Mock<IPerfil_UtilizadoresServices>();
+            
             //Comportamento para criar Premissoes
             PermissoesServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Permissoes>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
+            )).ReturnsAsync(new DataBase.Models.Permissoes()
             {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
+                Id = 1,
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
                 Criar = true,
                 Eliminar = true,
                 Escrever = true,
@@ -39,10 +43,11 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Permissoes>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
+            )).ReturnsAsync(new DataBase.Models.Permissoes()
             {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
+                Id = 1,
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
                 Criar = true,
                 Eliminar = true,
                 Escrever = true,
@@ -52,10 +57,11 @@ namespace GatewayTests
             PermissoesServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Permissoes()
+            )).ReturnsAsync(new DataBase.Models.Permissoes()
             {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
+                Id = 1,
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
                 Criar = true,
                 Eliminar = true,
                 Escrever = true,
@@ -64,12 +70,13 @@ namespace GatewayTests
 
             PermissoesServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Permissoes>()
+            )).ReturnsAsync(new List<DataBase.Models.Permissoes>()
             {
-                new DataBase.ViewModels.Permissoes()
+                new DataBase.Models.Permissoes()
                 {
-                    Username = "Diogo Biscaia",
-                    Modulo = "Doentes",
+                    Id = 1,
+                    Id_Modulo = 1,
+                    Id_Perfil_Utilizador = 1,
                     Criar = true,
                     Eliminar = true,
                     Escrever = true,
@@ -81,8 +88,28 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
+
+            ModulosServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Modulos()
+            {
+                Id = 1,
+                Nome = "Doentes",
+                EndPoint = "api/doentes"
+            });
+
+            PerfilUtilizadoresServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Perfil_Utilizador()
+            {
+                Id = 1,
+                Nome = "Profissional de Saúde"
+            });
+
             #endregion
-            gateway = new PermissoesController(PermissoesServices.Object);
+            gateway = new PermissoesController(PermissoesServices.Object, ModulosServices.Object, PerfilUtilizadoresServices.Object);
         }
 
         [Test]
@@ -100,7 +127,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Perfil, "Profissional de Saúde");
         }
 
 
@@ -121,21 +148,21 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Perfil, "Profissional de Saúde");
         }
 
         [Test]
         public async Task GetByIdTestAsync()
         {
             var permissao = await gateway.GetByIdAsync(1, CancellationToken.None);
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Perfil, "Profissional de Saúde");
         }
 
         [Test]
         public async Task GetAllTestAsync()
         {
             var permissoes = await gateway.GetAllAsync(CancellationToken.None);
-            Assert.IsTrue(permissoes.Any(x => x.Username == "Diogo Biscaia"));
+            Assert.IsTrue(permissoes.Any(x => x.Perfil == "Profissional de Saúde"));
         }
 
         [Test]

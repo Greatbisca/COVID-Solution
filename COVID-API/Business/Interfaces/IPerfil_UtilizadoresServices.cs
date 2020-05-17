@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -17,8 +18,8 @@ namespace Business.Interfaces
        /// <param name="perfil_utilizador"></param>
        /// <param name="ct"></param>
        /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(
-            DataBase.Models.Perfil_Utilizador perfil_utilizador,
+        Task<Perfil_Utilizador> CreateAsync(
+            Perfil_Utilizador perfil_utilizador,
             CancellationToken ct
         );
 
@@ -29,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="perfil_utilizador"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(
+        Task<Perfil_Utilizador> UpdateAsync(
             int id,
-            DataBase.Models.Perfil_Utilizador perfil_utilizador,
+            Perfil_Utilizador perfil_utilizador,
             CancellationToken ct
         );
 
@@ -41,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(
+        Task<Perfil_Utilizador> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -51,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(
+        Task<ICollection<Perfil_Utilizador>> GetAllAsync(
             CancellationToken ct
         );
 

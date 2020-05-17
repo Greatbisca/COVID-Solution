@@ -77,7 +77,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Id_Doente, 12345);
         }
 
 
@@ -93,7 +93,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(internanemto.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internanemto.Id_Doente, 12345);
         }
 
         [Test]
@@ -104,7 +104,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(internamento.Nome_Doente, "Diogo Biscaia");
+            Assert.AreEqual(internamento.Id_Doente, 12345);
         }
 
         [Test]
@@ -114,7 +114,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome_Doente == "Diogo Biscaia"));
+            Assert.IsTrue(doentes.Any(x => x.Id_Doente == 12345));
         }
 
         [Test]

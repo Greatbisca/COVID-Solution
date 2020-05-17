@@ -18,8 +18,8 @@ namespace Business.Interfaces
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> CreateAsync(
-            DataBase.Models.Hospital hospital,
+        Task<Hospital> CreateAsync(
+            Hospital hospital,
             CancellationToken ct
         );
 
@@ -30,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> UpdateAsync(
+        Task<Hospital> UpdateAsync(
             int id,
-            DataBase.Models.Hospital hospital,
+            Hospital hospital,
             CancellationToken ct
         );
 
@@ -42,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Hospital> GetByIdAsync(
+        Task<Hospital> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -52,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Hospital>> GetAllAsync(
+        Task<ICollection<Hospital>> GetAllAsync(
             CancellationToken ct
         );
 

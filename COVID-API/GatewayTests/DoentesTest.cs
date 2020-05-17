@@ -23,7 +23,7 @@ namespace GatewayTests
             DoenteServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Doente>(), 
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Doente()
+            )).ReturnsAsync(new DataBase.Models.Doente()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -32,7 +32,7 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Doente>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Doente()
+            )).ReturnsAsync(new DataBase.Models.Doente()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -40,16 +40,16 @@ namespace GatewayTests
             DoenteServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Doente()
+            )).ReturnsAsync(new DataBase.Models.Doente()
             {
                 Nome = "Diogo Biscaia"
             });
 
             DoenteServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Doente>()
+            )).ReturnsAsync(new List<DataBase.Models.Doente>()
             {
-                new DataBase.ViewModels.Doente()
+                new DataBase.Models.Doente()
                 {
                     Nome = "Diogo Biscaia"
                 }

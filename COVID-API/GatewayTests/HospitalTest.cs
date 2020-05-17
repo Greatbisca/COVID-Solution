@@ -27,7 +27,7 @@ namespace GatewayTests
             HospitalServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Hospital>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Hospital()
+            )).ReturnsAsync(new DataBase.Models.Hospital()
             {
                 Nome = "S.Joao"
             });
@@ -36,7 +36,7 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Hospital>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Hospital()
+            )).ReturnsAsync(new DataBase.Models.Hospital()
             {
                 Nome = "S.Joao"
             });
@@ -44,16 +44,16 @@ namespace GatewayTests
             HospitalServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Hospital()
+            )).ReturnsAsync(new DataBase.Models.Hospital()
             {
                 Nome = "S.Joao"
             });
 
             HospitalServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Hospital>()
+            )).ReturnsAsync(new List<DataBase.Models.Hospital>()
             {
-                new DataBase.ViewModels.Hospital()
+                new DataBase.Models.Hospital()
                 {
                     Nome = "S.Joao"
                 }

@@ -8,7 +8,6 @@ namespace DataBase.Models
     {
         public int Id { get; set; }
         public int Id_Utilizador { get; set; }
-        public string Nome { get; set; }
         public string Regiao { get; set; }
 
     }

@@ -18,8 +18,8 @@ namespace Business.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> CreateAsync(
-            DataBase.Models.Doente doente, 
+        Task<Doente> CreateAsync(
+            Doente doente, 
             CancellationToken ct
         );
 
@@ -30,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> UpdateAsync(
+        Task<Doente> UpdateAsync(
             int id,
-            DataBase.Models.Doente doente,
+            Doente doente,
             CancellationToken ct
         );
 
@@ -42,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> GetByIdAsync(
+        Task<Doente> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -52,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Doente>> GetAllAsync(
+        Task<ICollection<Doente>> GetAllAsync(
             CancellationToken ct
         );
 

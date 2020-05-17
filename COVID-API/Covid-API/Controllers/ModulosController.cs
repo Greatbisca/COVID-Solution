@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using Covid_API.Mappings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -38,7 +39,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _modulosServices.CreateAsync(modulos, ct);
+            var result = await _modulosServices.CreateAsync(modulos, ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -66,7 +68,8 @@ namespace Covid_API.Controllers
         [Route("")]
         public async Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct)
         {
-            return await _modulosServices.GetAllAsync(ct);
+            var result = await _modulosServices.GetAllAsync(ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -82,7 +85,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _modulosServices.GetByIdAsync(id, ct);
+            var result = await _modulosServices.GetByIdAsync(id, ct);
+            return result.ToViewModel();
         }
 
         /// <summary>
@@ -100,7 +104,8 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _modulosServices.UpdateAsync(id, modulos, ct);
+            var result = await _modulosServices.UpdateAsync(id, modulos, ct);
+            return result.ToViewModel();
         }
     }
 }

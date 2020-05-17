@@ -22,7 +22,7 @@ namespace Business
             _modulosRepository = modulosRepository;
         }
 
-        public Task<DataBase.ViewModels.Modulos> CreateAsync(DataBase.Models.Modulos modulos, CancellationToken ct)
+        public Task<Modulos> CreateAsync(Modulos modulos, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -32,17 +32,17 @@ namespace Business
             throw new NotImplementedException();
         }
 
-        public Task<ICollection<DataBase.ViewModels.Modulos>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Modulos>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataBase.ViewModels.Modulos> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Modulos> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
 
-        public Task<DataBase.ViewModels.Modulos> UpdateAsync(int id, DataBase.Models.Modulos modulos, CancellationToken ct)
+        public Task<Modulos> UpdateAsync(int id, Modulos modulos, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

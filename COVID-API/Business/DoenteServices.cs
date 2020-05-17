@@ -1,12 +1,10 @@
 ﻿using Business.Interfaces;
 using DataBase.Models;
 using DataBase.Repository;
-using DataBase.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using Doente = DataBase.Models.Doente;
 
 namespace Business
 {
@@ -32,8 +30,8 @@ namespace Business
         /// <param name="doente">Objecto Doente para criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do doente criado</returns>
-        public Task<DataBase.ViewModels.Doente> CreateAsync(
-            DataBase.Models.Doente doente, 
+        public Task<Doente> CreateAsync(
+            Doente doente, 
             CancellationToken ct
         )
         {
@@ -58,7 +56,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de doentes</returns>
-        public Task<ICollection<DataBase.ViewModels.Doente>> GetAllAsync(
+        public Task<ICollection<Doente>> GetAllAsync(
             CancellationToken ct
         )
         {
@@ -71,7 +69,7 @@ namespace Business
         /// <param name="id">Identificador do doente</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do doente</returns>
-        public Task<DataBase.ViewModels.Doente> GetByIdAsync(
+        public Task<Doente> GetByIdAsync(
             int id, 
             CancellationToken ct
         )
@@ -86,9 +84,9 @@ namespace Business
         /// <param name="doente">Dados do doente para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do doente</returns>
-        public Task<DataBase.ViewModels.Doente> UpdateAsync(
+        public Task<Doente> UpdateAsync(
             int id, 
-            DataBase.Models.Doente doente, 
+            Doente doente, 
             CancellationToken ct
         )
         {

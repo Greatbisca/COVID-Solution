@@ -93,13 +93,13 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(teste.Resultado_Teste ,"Positivo");
+            Assert.AreEqual(teste.Resultado_Teste, "Positivo");
         }
 
         [Test]
         public async Task GetTestAsync()
         {
-            var teste= await business.GetByIdAsync(
+            var teste = await business.GetByIdAsync(
                 1,
                 CancellationToken.None
             );
@@ -136,4 +136,5 @@ namespace BusinessTests
                 Assert.IsTrue(true);
             }
         }
+    }
 }

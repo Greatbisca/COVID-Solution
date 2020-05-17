@@ -21,39 +21,41 @@ namespace GatewayTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IInternamentoServices> InternamentoServices = new Mock<IInternamentoServices>();
+            Mock<IDoenteServices> DoenteServices = new Mock<IDoenteServices>();
+            Mock<IHospitalServices> HospitalServices = new Mock<IHospitalServices>();
             //Comportamento para criar o Doente
             InternamentoServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Internamento>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Internamento()
+            )).ReturnsAsync(new DataBase.Models.Internamento()
             {
-                Nome_Doente = "Diogo Biscaia"
+                Id_Doente = 1
             });
 
             InternamentoServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Internamento>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Internamento()
+            )).ReturnsAsync(new DataBase.Models.Internamento()
             {
-                Nome_Doente= "Diogo Biscaia"
+                Id_Doente = 1
             });
 
             InternamentoServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Internamento()
+            )).ReturnsAsync(new DataBase.Models.Internamento()
             {
-                Nome_Doente = "Diogo Biscaia"
+                Id_Doente = 1
             });
 
             InternamentoServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Internamento>()
+            )).ReturnsAsync(new List<DataBase.Models.Internamento>()
             {
-                new DataBase.ViewModels.Internamento()
+                new DataBase.Models.Internamento()
                 {
-                    Nome_Doente = "Diogo Biscaia"
+                    Id_Doente = 1
                 }
             });
 
@@ -61,8 +63,33 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
+
+            DoenteServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Doente()
+            {
+                Id = 1,
+                Nome = "Diogo Biscaia",
+                Id_Utilizador = 1
+            });
+
+            HospitalServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Hospital()
+            {
+                Id = 1,
+                Nome = "S. João",
+                Distrito = "Porto"
+            });
+
             #endregion
-            gateway = new InternamentoController(InternamentoServices.Object);
+            gateway = new InternamentoController(
+                InternamentoServices.Object, 
+                DoenteServices.Object, 
+                HospitalServices.Object
+            );
         }
 
 

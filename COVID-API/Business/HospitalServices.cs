@@ -26,7 +26,7 @@ namespace Business
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public Task<DataBase.ViewModels.Hospital> CreateAsync(DataBase.Models.Hospital hospital, CancellationToken ct)
+        public Task<Hospital> CreateAsync(Hospital hospital, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -47,7 +47,7 @@ namespace Business
         /// </summary>
         /// <param name="ct"> Cancellation Token - chamada asincrona </param>
         /// <returns>Lista de hospitais</returns>
-        public Task<ICollection<DataBase.ViewModels.Hospital>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Hospital>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -58,7 +58,7 @@ namespace Business
         /// <param name="id">Identificador do hospital</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do hospital</returns>
-        public Task<DataBase.ViewModels.Hospital> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Hospital> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -70,7 +70,7 @@ namespace Business
         /// <param name="hospital">Dados do hospital para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Hospital</returns>
-        public Task<DataBase.ViewModels.Hospital> UpdateAsync(int id, DataBase.Models.Hospital hospital, CancellationToken ct)
+        public Task<Hospital> UpdateAsync(int id, Hospital hospital, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

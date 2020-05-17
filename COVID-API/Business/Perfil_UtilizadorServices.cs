@@ -28,7 +28,7 @@ namespace Business
         /// <param name="perfil_utilizador">Objeto Perfil Utilizador para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Perfil Utilizador</returns>
-        public Task<DataBase.ViewModels.Perfil_Utilizador> CreateAsync(DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct)
+        public Task<Perfil_Utilizador> CreateAsync(Perfil_Utilizador perfil_utilizador, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -48,7 +48,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de Perfil Utilizadores</returns>
-        public Task<ICollection<DataBase.ViewModels.Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -59,7 +59,7 @@ namespace Business
         /// <param name="id">Identificador do Perfil Utilizador</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Perfil Utilzador</returns>
-        public Task<DataBase.ViewModels.Perfil_Utilizador> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Perfil_Utilizador> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -71,7 +71,7 @@ namespace Business
         /// <param name="perfil_utilizador">Dados do perfil utilizador para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do perfil utilizador</returns>
-        public Task<DataBase.ViewModels.Perfil_Utilizador> UpdateAsync(int id, DataBase.Models.Perfil_Utilizador perfil_utilizador, CancellationToken ct)
+        public Task<Perfil_Utilizador> UpdateAsync(int id, Perfil_Utilizador perfil_utilizador, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

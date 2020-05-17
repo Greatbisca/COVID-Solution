@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using Covid_API.Mappings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,14 +16,19 @@ namespace Covid_API.Controllers
     public class Profissionais_SaudeController : ControllerBase, IProfissionais_Saude
     {
         private IProfissionais_SaudeServices _profissionais_saudeServices;
+        private IUtilizadoresServices _utilizadorServices;
 
         /// <summary>
         /// Construtor com dependency injection
         /// </summary>
         /// <param name="profissionais_saudeServices"></param>
-        public Profissionais_SaudeController(IProfissionais_SaudeServices profissionais_saudeServices)
+        public Profissionais_SaudeController(
+            IProfissionais_SaudeServices profissionais_saudeServices,
+            IUtilizadoresServices utilizadoresServices
+        )
         {
             _profissionais_saudeServices = profissionais_saudeServices;
+            _utilizadorServices = utilizadoresServices;
         }
 
         /// <summary>
@@ -38,7 +44,10 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _profissionais_saudeServices.CreateAsync(profissionais_saude, ct);
+            var result = await _profissionais_saudeServices.CreateAsync(profissionais_saude, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
 
         /// <summary>
@@ -65,7 +74,16 @@ namespace Covid_API.Controllers
         [Route("")]
         public async Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(CancellationToken ct)
         {
-            return await _profissionais_saudeServices.GetAllAsync(ct);
+            var result = await _profissionais_saudeServices.GetAllAsync(ct);
+            var resultList = new List<DataBase.ViewModels.Profissionais_Saude>();
+
+            foreach(var profissional in result)
+            {
+                var utilizador = await _utilizadorServices.GetByIdAsync(profissional.Id_Utilizador, ct);
+                resultList.Add(profissional.ToViewModel(utilizador));
+            }
+
+            return resultList;
         }
 
         /// <summary>
@@ -81,7 +99,10 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _profissionais_saudeServices.GetByIdAsync(id, ct);
+            var result = await _profissionais_saudeServices.GetByIdAsync(id, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
 
         /// <summary>
@@ -99,7 +120,10 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _profissionais_saudeServices.UpdateAsync(id, profissionais_saude, ct);
+            var result = await _profissionais_saudeServices.UpdateAsync(id, profissionais_saude, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Business
         /// <param name="teste">Objeto Teste para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do teste criado</returns>
-        public Task<DataBase.ViewModels.Teste> CreateAsync(DataBase.Models.Teste teste, CancellationToken ct)
+        public Task<Teste> CreateAsync(Teste teste, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de Testes</returns>
-        public Task<ICollection<DataBase.ViewModels.Teste>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Teste>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace Business
         /// <param name="id">Identificador de um teste</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do teste</returns>
-        public Task<DataBase.ViewModels.Teste> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Teste> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -74,7 +74,7 @@ namespace Business
         /// <param name="teste">Dados do teste para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do teste</returns>
-        public Task<DataBase.ViewModels.Teste> UpdateAsync(int id, DataBase.Models.Teste teste, CancellationToken ct)
+        public Task<Teste> UpdateAsync(int id, Teste teste, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

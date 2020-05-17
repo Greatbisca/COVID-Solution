@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using Profissionais_Saude = DataBase.ViewModels.Profissionais_Saude;
+using Profissionais_Saude = DataBase.Models.Profissionais_Saude;
 
 namespace BusinessTests
 {
@@ -30,7 +30,7 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Profissionais_Saude()
             {
-                Nome = "Joaquim da Silva"
+                Profissao = "Médico"
             });
 
             profissionais_saudeRepository.Setup(x => x.UpdateAsync(
@@ -38,7 +38,7 @@ namespace BusinessTests
               CancellationToken.None
           )).ReturnsAsync(new Profissionais_Saude()
           {
-              Nome = "Joaquim da Silva"
+              Profissao = "Médico"
           });
 
             profissionais_saudeRepository.Setup(x => x.GetAsync(
@@ -46,7 +46,7 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Profissionais_Saude()
             {
-                Nome = "Joaquim da Silva"
+                Profissao = "Médico"
             });
 
             profissionais_saudeRepository.Setup(x => x.GetAllAsync(
@@ -55,7 +55,7 @@ namespace BusinessTests
             {
                 new Profissionais_Saude()
                 {
-                    Nome = "Joaquim da Silva"
+                    Profissao = "Médico"
                 }
             });
 
@@ -74,12 +74,12 @@ namespace BusinessTests
             var profissionais_saude = await business.CreateAsync(
                 new Profissionais_Saude()
                 {
-                    Profissao = "Medico"
+                    Profissao = "Médico"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Profissao, "Médico");
         }
 
 
@@ -90,12 +90,12 @@ namespace BusinessTests
                 1,
                 new Profissionais_Saude()
                 {
-                    Profissao = "Medico"
+                    Profissao = "Médico"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Profissao, "Médico");
         }
 
         [Test]
@@ -106,7 +106,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Profissao, "Médico");
         }
 
         [Test]
@@ -116,7 +116,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Joaquim da Silva"));
+            Assert.IsTrue(profissionais_saude.Any(x => x.Profissao == "Médico"));
         }
 
         [Test]

@@ -34,3 +34,15 @@ C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.pdb
 C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.dll
 C:\covid19\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.pdb
 C:\covid19\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CopyComplete
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csprojAssemblyReference.cache
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CoreCompileInputs.cache
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfoInputs.cache
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.AssemblyInfo.cs
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.dll
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.pdb
+C:\COVID\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.deps.json
+C:\COVID\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.dll
+C:\COVID\COVID-API\Business\bin\Debug\netcoreapp2.2\Business.pdb
+C:\COVID\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.dll
+C:\COVID\COVID-API\Business\bin\Debug\netcoreapp2.2\DataBase.pdb
+C:\COVID\COVID-API\Business\obj\Debug\netcoreapp2.2\Business.csproj.CopyComplete

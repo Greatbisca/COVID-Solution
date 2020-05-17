@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -17,8 +18,8 @@ namespace Business.Interfaces
         /// <param name="teste"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> CreateAsync(
-            DataBase.Models.Teste teste,
+        Task<Teste> CreateAsync(
+            Teste teste,
             CancellationToken ct
         );
 
@@ -29,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="teste"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> UpdateAsync(
+        Task<Teste> UpdateAsync(
             int id,
-            DataBase.Models.Teste teste,
+            Teste teste,
             CancellationToken ct
         );
 
@@ -41,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Teste> GetByIdAsync(
+        Task<Teste> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -51,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Teste>> GetAllAsync(
+        Task<ICollection<Teste>> GetAllAsync(
             CancellationToken ct
         );
 

@@ -28,8 +28,8 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Permissoes()
             {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
                 Criar = true,
                 Eliminar = true,
                 Escrever = true,
@@ -41,8 +41,8 @@ namespace BusinessTests
               CancellationToken.None
           )).ReturnsAsync(new Permissoes()
           {
-              Username = "Diogo Biscaia",
-              Modulo = "Doentes",
+              Id_Modulo = 1,
+              Id_Perfil_Utilizador = 1,
               Criar = true,
               Eliminar = true,
               Escrever = true,
@@ -54,8 +54,8 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Permissoes()
             {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
                 Criar = true,
                 Eliminar = true,
                 Escrever = true,
@@ -68,12 +68,12 @@ namespace BusinessTests
             {
                 new Permissoes()
                 {
-                Username = "Diogo Biscaia",
-                Modulo = "Doentes",
-                Criar = true,
-                Eliminar = true,
-                Escrever = true,
-                Ler = true
+                    Id_Modulo = 1,
+                    Id_Perfil_Utilizador = 1,
+                    Criar = true,
+                    Eliminar = true,
+                    Escrever = true,
+                    Ler = true
                 }
             });
 
@@ -102,7 +102,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Id_Perfil_Utilizador, 1);
         }
 
 
@@ -124,7 +124,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Id_Perfil_Utilizador, 1);
         }
 
         [Test]
@@ -135,7 +135,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(permissao.Username, "Diogo Biscaia");
+            Assert.AreEqual(permissao.Id_Perfil_Utilizador, 1);
         }
 
         [Test]
@@ -145,7 +145,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(permissao.Any(x => x.Username == "Diogo Biscaia"));
+            Assert.IsTrue(permissao.Any(x => x.Id_Perfil_Utilizador == 1));
         }
 
         [Test]

@@ -22,39 +22,52 @@ namespace GatewayTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IProfissionais_SaudeServices> Profissionais_SaudeServices = new Mock<IProfissionais_SaudeServices>();
+            Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Doente
             Profissionais_SaudeServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Profissionais_Saude>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
+            )).ReturnsAsync(new DataBase.Models.Profissionais_Saude()
             {
-                Nome = "Joaquim da Silva"
+                Id = 1, 
+                Id_Hospital = 1,
+                Id_Utilizador = 1,
+                Profissao = "Médico"
             });
 
             Profissionais_SaudeServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Profissionais_Saude>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
+            )).ReturnsAsync(new DataBase.Models.Profissionais_Saude()
             {
-                Nome = "Joaquim da Silva"
+                Id = 1,
+                Id_Hospital = 1,
+                Id_Utilizador = 1,
+                Profissao = "Médico"
             });
 
             Profissionais_SaudeServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Profissionais_Saude()
+            )).ReturnsAsync(new DataBase.Models.Profissionais_Saude()
             {
-                Nome = "Joaquim da Silva"
+                Id = 1,
+                Id_Hospital = 1,
+                Id_Utilizador = 1,
+                Profissao = "Médico"
             }); 
 
             Profissionais_SaudeServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Profissionais_Saude>()
+            )).ReturnsAsync(new List<DataBase.Models.Profissionais_Saude>()
             {
-                new DataBase.ViewModels.Profissionais_Saude()
+                new DataBase.Models.Profissionais_Saude()
                 {
-                    Nome = "Joaquim da Silva"
+                    Id = 1,
+                    Id_Hospital = 1,
+                    Id_Utilizador = 1,
+                    Profissao = "Médico"
                 }
             });
 
@@ -62,8 +75,24 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
+
+            UtilizadoresServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                CC = 123456,
+                Idade = 23,
+                Id_Perfil_Utilizador = 1,
+                Morada = "Senhora da Hora",
+                NIB = 12345,
+                Nome = "Diogo Biscaia",
+                Sexo = "M",
+                Username = "GreatBisca"
+            });
             #endregion
-            gateway = new Profissionais_SaudeController(Profissionais_SaudeServices.Object);
+            gateway = new Profissionais_SaudeController(Profissionais_SaudeServices.Object, UtilizadoresServices.Object);
         }
 
         [Test]
@@ -77,7 +106,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -92,7 +121,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -103,7 +132,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(profissionais_saude.Nome, "Joaquim da Silva");
+            Assert.AreEqual(profissionais_saude.Nome, "Diogo Biscaia");
         }
 
         [Test]
@@ -113,7 +142,7 @@ namespace GatewayTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Joaquim da Silva"));
+            Assert.IsTrue(profissionais_saude.Any(x => x.Nome == "Diogo Biscaia"));
         }
 
         [Test]

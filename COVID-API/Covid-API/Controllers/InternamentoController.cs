@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using Covid_API.Mappings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,14 +19,22 @@ namespace Covid_API.Controllers
     public class InternamentoController : ControllerBase, IInternamento
     {
         private IInternamentoServices _internamentoServices;
+        private IDoenteServices _doenteServices;
+        private IHospitalServices _hospitalServices;
 
         /// <summary>
         /// Construtor com dependency injection
         /// </summary>
         /// <param name="internamentoServices"></param>
-        public InternamentoController(IInternamentoServices internamentoServices)
+        public InternamentoController(
+            IInternamentoServices internamentoServices,
+            IDoenteServices doenteServices,
+            IHospitalServices hospitalServices
+        )
         {
             _internamentoServices = internamentoServices;
+            _doenteServices = doenteServices;
+            _hospitalServices = hospitalServices;
         }
 
         /// <summary>
@@ -41,7 +50,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _internamentoServices.CreateAsync(internamento, ct);
+            var result = await _internamentoServices.CreateAsync(internamento, ct);
+            var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
+            var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+
+            return result.ToViewModel(doente, hospital);
         }
 
         /// <summary>
@@ -68,7 +81,17 @@ namespace Covid_API.Controllers
         [Route("")]
         public async Task<ICollection<DataBase.ViewModels.Internamento>> GetAllAsync(CancellationToken ct)
         {
-            return await _internamentoServices.GetAllAsync(ct);
+            var result = await _internamentoServices.GetAllAsync(ct);
+            var resultList = new List<DataBase.ViewModels.Internamento>();
+            foreach(var internamento in result)
+            {
+                var doente = await _doenteServices.GetByIdAsync(internamento.Id_Doente, ct);
+                var hospital = await _hospitalServices.GetByIdAsync(internamento.Id_Hospital, ct);
+
+                resultList.Add(internamento.ToViewModel(doente, hospital));
+            }
+
+            return resultList;
         }
 
         /// <summary>
@@ -84,7 +107,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _internamentoServices.GetByIdAsync(id, ct);
+            var result = await _internamentoServices.GetByIdAsync(id, ct);
+            var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
+            var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+
+            return result.ToViewModel(doente, hospital);
         }
 
         /// <summary>
@@ -102,7 +129,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _internamentoServices.UpdateAsync(id, internamento, ct);
+            var result = await _internamentoServices.UpdateAsync(id, internamento, ct);
+            var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
+            var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+
+            return result.ToViewModel(doente, hospital);
         }
     }
 }

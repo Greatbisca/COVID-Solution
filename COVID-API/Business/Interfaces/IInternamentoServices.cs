@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -17,8 +18,8 @@ namespace Business.Interfaces
         /// <param name="internamento"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> CreateAsync(
-            DataBase.Models.Internamento internamento,
+        Task<Internamento> CreateAsync(
+            Internamento internamento,
             CancellationToken ct
         );
 
@@ -29,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="internamento"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> UpdateAsync(
+        Task<Internamento> UpdateAsync(
             int id,
-            DataBase.Models.Internamento internamento,
+            Internamento internamento,
             CancellationToken ct
         );
 
@@ -41,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Internamento> GetByIdAsync(
+        Task<Internamento> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -51,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Internamento>> GetAllAsync(
+        Task<ICollection<Internamento>> GetAllAsync(
             CancellationToken ct
         );
 

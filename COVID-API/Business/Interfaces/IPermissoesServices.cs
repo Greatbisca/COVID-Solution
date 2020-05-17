@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataBase.Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading;
@@ -18,8 +19,8 @@ namespace Business.Interfaces
         /// <param name="permissoes"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Permissoes> CreateAsync(
-            DataBase.Models.Permissoes permissoes,
+        Task<Permissoes> CreateAsync(
+            Permissoes permissoes,
             CancellationToken ct
         );
 
@@ -31,9 +32,9 @@ namespace Business.Interfaces
         /// <param name="permissoes"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Permissoes> UpdateAsync(
+        Task<Permissoes> UpdateAsync(
             int id,
-            DataBase.Models.Permissoes permissoes,
+            Permissoes permissoes,
             CancellationToken ct
         );
 
@@ -44,7 +45,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Permissoes> GetByIdAsync(
+        Task<Permissoes> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -54,7 +55,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Permissoes>> GetAllAsync(
+        Task<ICollection<Permissoes>> GetAllAsync(
             CancellationToken ct
         );
 

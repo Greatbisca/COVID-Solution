@@ -5,6 +5,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Business.Interfaces;
 using Covid_API.Interfaces;
+using Covid_API.Mappings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,14 +16,22 @@ namespace Covid_API.Controllers
     public class PermissoesController : ControllerBase, IPermissoes
     {
         private IPermissoesServices _permissoesServices;
+        private IModulosServices _modulosServices;
+        private IPerfil_UtilizadoresServices _perfil_utilizadoresServices;
 
         /// <summary>
         /// Construtor com dependency injection
         /// </summary>
         /// <param name="permissoesServices"></param>
-        public PermissoesController(IPermissoesServices permissoesServices)
+        public PermissoesController(
+            IPermissoesServices permissoesServices,
+            IModulosServices modulosServices,
+            IPerfil_UtilizadoresServices perfil_UtilizadoresServices
+        )
         {
             _permissoesServices = permissoesServices;
+            _modulosServices = modulosServices;
+            _perfil_utilizadoresServices = perfil_UtilizadoresServices;
         }
 
         /// <summary>
@@ -38,7 +47,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _permissoesServices.CreateAsync(permissoes, ct);
+            var result = await _permissoesServices.CreateAsync(permissoes, ct);
+            var perfil = await _perfil_utilizadoresServices.GetByIdAsync(result.Id_Perfil_Utilizador, ct);
+            var modulo = await _modulosServices.GetByIdAsync(result.Id_Modulo, ct);
+
+            return result.ToViewModel(modulo, perfil);
         }
 
         /// <summary>
@@ -65,7 +78,18 @@ namespace Covid_API.Controllers
         [Route("")]
         public async Task<ICollection<DataBase.ViewModels.Permissoes>> GetAllAsync(CancellationToken ct)
         {
-            return await _permissoesServices.GetAllAsync(ct);
+            var result = await _permissoesServices.GetAllAsync(ct);
+            var resultList = new List<DataBase.ViewModels.Permissoes>();
+
+            foreach(var permissao in result)
+            {
+                var modulo = await _modulosServices.GetByIdAsync(permissao.Id_Modulo, ct);
+                var perfil = await _perfil_utilizadoresServices.GetByIdAsync(permissao.Id_Perfil_Utilizador, ct);
+
+                resultList.Add(permissao.ToViewModel(modulo, perfil));
+            }
+
+            return resultList;
         }
 
         /// <summary>
@@ -81,7 +105,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _permissoesServices.GetByIdAsync(id, ct);
+            var result = await _permissoesServices.GetByIdAsync(id, ct);
+            var modulo = await _modulosServices.GetByIdAsync(result.Id_Modulo, ct);
+            var perfil = await _perfil_utilizadoresServices.GetByIdAsync(result.Id_Perfil_Utilizador, ct);
+
+            return result.ToViewModel(modulo, perfil);
         }
 
         /// <summary>
@@ -99,7 +127,11 @@ namespace Covid_API.Controllers
             CancellationToken ct
         )
         {
-            return await _permissoesServices.UpdateAsync(id, permissoes, ct);
+            var result = await _permissoesServices.UpdateAsync(id, permissoes, ct);
+            var modulo = await _modulosServices.GetByIdAsync(result.Id_Modulo, ct);
+            var perfil = await _perfil_utilizadoresServices.GetByIdAsync(result.Id_Perfil_Utilizador, ct);
+
+            return result.ToViewModel(modulo, perfil);
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Business
         /// <param name="internamento">Objeto Internamento para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<DataBase.ViewModels.Internamento> CreateAsync(DataBase.Models.Internamento internamento, CancellationToken ct)
+        public Task<Internamento> CreateAsync(Internamento internamento, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -51,7 +51,7 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de internamentos</returns>
-        public Task<ICollection<DataBase.ViewModels.Internamento>> GetAllAsync(CancellationToken ct)
+        public Task<ICollection<Internamento>> GetAllAsync(CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -62,7 +62,7 @@ namespace Business
         /// <param name="id">Identificador do internamento</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<DataBase.ViewModels.Internamento> GetByIdAsync(int id, CancellationToken ct)
+        public Task<Internamento> GetByIdAsync(int id, CancellationToken ct)
         {
             throw new NotImplementedException();
         }
@@ -74,7 +74,7 @@ namespace Business
         /// <param name="internamento">Dados do internamento para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<DataBase.ViewModels.Internamento> UpdateAsync(int id, DataBase.Models.Internamento internamento, CancellationToken ct)
+        public Task<Internamento> UpdateAsync(int id, Internamento internamento, CancellationToken ct)
         {
             throw new NotImplementedException();
         }

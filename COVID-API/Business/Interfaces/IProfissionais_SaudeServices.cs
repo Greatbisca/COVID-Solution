@@ -1,4 +1,4 @@
-﻿using DataBase.ViewModels;
+﻿using DataBase.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -18,8 +18,8 @@ namespace Business.Interfaces
         /// <param name="profissionais_saude"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(
-            DataBase.Models.Profissionais_Saude profissionais_saude,
+        Task<Profissionais_Saude> CreateAsync(
+            Profissionais_Saude profissionais_saude,
             CancellationToken ct
         );
 
@@ -30,9 +30,9 @@ namespace Business.Interfaces
         /// <param name="profissionais_saude"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(
+        Task<Profissionais_Saude> UpdateAsync(
             int id,
-            DataBase.Models.Profissionais_Saude profissionais_saude,
+            Profissionais_Saude profissionais_saude,
             CancellationToken ct
         );
 
@@ -42,7 +42,7 @@ namespace Business.Interfaces
         /// <param name="id"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> GetByIdAsync(
+        Task<Profissionais_Saude> GetByIdAsync(
             int id,
             CancellationToken ct
         );
@@ -52,7 +52,7 @@ namespace Business.Interfaces
         /// </summary>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<ICollection<DataBase.ViewModels.Profissionais_Saude>> GetAllAsync(
+        Task<ICollection<Profissionais_Saude>> GetAllAsync(
             CancellationToken ct
         );
 
@@ -66,6 +66,5 @@ namespace Business.Interfaces
             int id,
             CancellationToken ct
         );
-        Task CreateAsync(Profissionais_Saude profissionais_Saude, CancellationToken none);
     }
 }

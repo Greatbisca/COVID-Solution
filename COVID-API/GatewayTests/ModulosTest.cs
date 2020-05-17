@@ -25,7 +25,7 @@ namespace GatewayTests
             ModulosServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Modulos>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.Models.Modulos()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -34,7 +34,7 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Modulos>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.Models.Modulos()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -42,16 +42,16 @@ namespace GatewayTests
             ModulosServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Modulos()
+            )).ReturnsAsync(new DataBase.Models.Modulos()
             {
                 Nome = "Diogo Biscaia"
             });
 
             ModulosServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Modulos>()
+            )).ReturnsAsync(new List<DataBase.Models.Modulos>()
             {
-                new DataBase.ViewModels.Modulos()
+                new DataBase.Models.Modulos()
                 {
                     Nome = "Diogo Biscaia"
                 }

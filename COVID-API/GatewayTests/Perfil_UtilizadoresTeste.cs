@@ -25,7 +25,7 @@ namespace GatewayTests
             Perfil_UtilizadoresServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Perfil_Utilizador>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
+            )).ReturnsAsync(new DataBase.Models.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -34,7 +34,7 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 It.IsAny<DataBase.Models.Perfil_Utilizador>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
+            )).ReturnsAsync(new DataBase.Models.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
@@ -42,16 +42,16 @@ namespace GatewayTests
             Perfil_UtilizadoresServices.Setup(x => x.GetByIdAsync(
                 It.IsAny<int>(),
                 CancellationToken.None
-            )).ReturnsAsync(new DataBase.ViewModels.Perfil_Utilizador()
+            )).ReturnsAsync(new DataBase.Models.Perfil_Utilizador()
             {
                 Nome = "Diogo Biscaia"
             });
 
             Perfil_UtilizadoresServices.Setup(x => x.GetAllAsync(
                 CancellationToken.None
-            )).ReturnsAsync(new List<DataBase.ViewModels.Perfil_Utilizador>()
+            )).ReturnsAsync(new List<DataBase.Models.Perfil_Utilizador>()
             {
-                new DataBase.ViewModels.Perfil_Utilizador()
+                new DataBase.Models.Perfil_Utilizador()
                 {
                     Nome = "Diogo Biscaia"
                 }
