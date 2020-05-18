@@ -21,6 +21,7 @@ namespace Covid_API.Controllers
         private IInternamentoServices _internamentoServices;
         private IDoenteServices _doenteServices;
         private IHospitalServices _hospitalServices;
+        private IUtilizadoresServices _utilizadorServices;
 
         /// <summary>
         /// Construtor com dependency injection
@@ -29,12 +30,14 @@ namespace Covid_API.Controllers
         public InternamentoController(
             IInternamentoServices internamentoServices,
             IDoenteServices doenteServices,
-            IHospitalServices hospitalServices
+            IHospitalServices hospitalServices,
+            IUtilizadoresServices utilizadorServices
         )
         {
             _internamentoServices = internamentoServices;
             _doenteServices = doenteServices;
             _hospitalServices = hospitalServices;
+            _utilizadorServices = utilizadorServices;
         }
 
         /// <summary>
@@ -53,8 +56,9 @@ namespace Covid_API.Controllers
             var result = await _internamentoServices.CreateAsync(internamento, ct);
             var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
             var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(doente.Id_Utilizador, ct);
 
-            return result.ToViewModel(doente, hospital);
+            return result.ToViewModel(utilizador, hospital);
         }
 
         /// <summary>
@@ -87,8 +91,9 @@ namespace Covid_API.Controllers
             {
                 var doente = await _doenteServices.GetByIdAsync(internamento.Id_Doente, ct);
                 var hospital = await _hospitalServices.GetByIdAsync(internamento.Id_Hospital, ct);
+                var utilizador = await _utilizadorServices.GetByIdAsync(doente.Id_Utilizador, ct);
 
-                resultList.Add(internamento.ToViewModel(doente, hospital));
+                resultList.Add(internamento.ToViewModel(utilizador, hospital));
             }
 
             return resultList;
@@ -110,8 +115,9 @@ namespace Covid_API.Controllers
             var result = await _internamentoServices.GetByIdAsync(id, ct);
             var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
             var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(doente.Id_Utilizador, ct);
 
-            return result.ToViewModel(doente, hospital);
+            return result.ToViewModel(utilizador, hospital);
         }
 
         /// <summary>
@@ -132,8 +138,9 @@ namespace Covid_API.Controllers
             var result = await _internamentoServices.UpdateAsync(id, internamento, ct);
             var doente = await _doenteServices.GetByIdAsync(result.Id_Doente, ct);
             var hospital = await _hospitalServices.GetByIdAsync(result.Id_Hospital, ct);
+            var utilizador = await _utilizadorServices.GetByIdAsync(doente.Id_Utilizador, ct);
 
-            return result.ToViewModel(doente, hospital);
+            return result.ToViewModel(utilizador, hospital);
         }
     }
 }

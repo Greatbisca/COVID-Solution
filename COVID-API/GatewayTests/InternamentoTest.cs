@@ -23,6 +23,7 @@ namespace GatewayTests
             Mock<IInternamentoServices> InternamentoServices = new Mock<IInternamentoServices>();
             Mock<IDoenteServices> DoenteServices = new Mock<IDoenteServices>();
             Mock<IHospitalServices> HospitalServices = new Mock<IHospitalServices>();
+            Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Doente
             InternamentoServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Internamento>(),
@@ -70,7 +71,7 @@ namespace GatewayTests
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
                 Id = 1,
-                Nome = "Diogo Biscaia",
+                Regiao = "Porto",
                 Id_Utilizador = 1
             });
 
@@ -84,11 +85,21 @@ namespace GatewayTests
                 Distrito = "Porto"
             });
 
+            UtilizadoresServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                Nome = "Diogo Biscaia"
+            });
+
             #endregion
             gateway = new InternamentoController(
                 InternamentoServices.Object, 
                 DoenteServices.Object, 
-                HospitalServices.Object
+                HospitalServices.Object,
+                UtilizadoresServices.Object
             );
         }
 

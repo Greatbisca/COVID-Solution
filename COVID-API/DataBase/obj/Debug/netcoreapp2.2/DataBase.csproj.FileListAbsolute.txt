@@ -33,3 +33,5 @@ C:\COVID\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.AssemblyInfo.cs
 C:\COVID\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.dll
 C:\COVID\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.pdb
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DataBase\obj\Debug\netcoreapp2.2\DataBase.csprojAssemblyReference.cache
+C:\COVID\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.runtimeconfig.json
+C:\COVID\COVID-API\DataBase\bin\Debug\netcoreapp2.2\DataBase.runtimeconfig.dev.json

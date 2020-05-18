@@ -19,14 +19,16 @@ namespace Covid_API.Controllers
     public class DoenteController : ControllerBase, IDoente
     {
         private IDoenteServices _doenteServices;
+        private IUtilizadoresServices _utilizadoresServices;
 
         /// <summary>
         /// Construtor com dependency injection
         /// </summary>
         /// <param name="doenteServices"></param>
-        public DoenteController(IDoenteServices doenteServices)
+        public DoenteController(IDoenteServices doenteServices, IUtilizadoresServices utilizadoresServices)
         {
             _doenteServices = doenteServices;
+            _utilizadoresServices = utilizadoresServices;
         }
 
         /// <summary>
@@ -43,7 +45,9 @@ namespace Covid_API.Controllers
         )
         {
             var result = await _doenteServices.CreateAsync(doente, ct);
-            return result.ToViewModel();
+            var utilizador = await _utilizadoresServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
 
         /// <summary>
@@ -71,7 +75,15 @@ namespace Covid_API.Controllers
         public async Task<ICollection<DataBase.ViewModels.Doente>> GetAllAsync(CancellationToken ct)
         {
             var result = await _doenteServices.GetAllAsync(ct);
-            return result.ToViewModel();
+            var resultList = new List<DataBase.ViewModels.Doente>();
+
+            foreach (var doente in result)
+            {
+                var utilizador = await _utilizadoresServices.GetByIdAsync(doente.Id_Utilizador, ct);
+                resultList.Add(doente.ToViewModel(utilizador));
+            }
+
+            return resultList;
         }
 
         /// <summary>
@@ -88,7 +100,9 @@ namespace Covid_API.Controllers
         )
         {
             var result = await _doenteServices.GetByIdAsync(id,ct);
-            return result.ToViewModel();
+            var utilizador = await _utilizadoresServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
 
         /// <summary>
@@ -107,7 +121,9 @@ namespace Covid_API.Controllers
         )
         {
             var result = await _doenteServices.UpdateAsync(id, doente, ct);
-            return result.ToViewModel();
+            var utilizador = await _utilizadoresServices.GetByIdAsync(result.Id_Utilizador, ct);
+
+            return result.ToViewModel(utilizador);
         }
     }
 }

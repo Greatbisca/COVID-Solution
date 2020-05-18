@@ -19,13 +19,16 @@ namespace GatewayTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IDoenteServices> DoenteServices = new Mock<IDoenteServices>();
+            Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Doente
             DoenteServices.Setup(x => x.CreateAsync(
                 It.IsAny<DataBase.Models.Doente>(), 
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
-                Nome = "Diogo Biscaia"
+                Id = 1,
+                Id_Utilizador = 1,
+                Regiao = "Porto"
             });
 
             DoenteServices.Setup(x => x.UpdateAsync(
@@ -34,7 +37,9 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
-                Nome = "Diogo Biscaia"
+                Id = 1,
+                Id_Utilizador = 1,
+                Regiao = "Porto"
             });
 
             DoenteServices.Setup(x => x.GetByIdAsync(
@@ -42,7 +47,9 @@ namespace GatewayTests
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
-                Nome = "Diogo Biscaia"
+                Id = 1,
+                Id_Utilizador = 1,
+                Regiao = "Porto"
             });
 
             DoenteServices.Setup(x => x.GetAllAsync(
@@ -51,7 +58,9 @@ namespace GatewayTests
             {
                 new DataBase.Models.Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id = 1,
+                Id_Utilizador = 1,
+                Regiao = "Porto"
                 }
             });
 
@@ -59,8 +68,17 @@ namespace GatewayTests
                 It.IsAny<int>(),
                 CancellationToken.None
             ));
+
+            UtilizadoresServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                Nome = "Diogo Biscaia"
+            });
             #endregion
-            gateway = new DoenteController(DoenteServices.Object);
+            gateway = new DoenteController(DoenteServices.Object, UtilizadoresServices.Object);
         }
 
         [Test]
@@ -69,7 +87,9 @@ namespace GatewayTests
             var doente = await gateway.CreateAsync(
                 new DataBase.Models.Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id = 1,
+                    Id_Utilizador = 1,
+                    Regiao = "Porto"
                 }, 
                 CancellationToken.None
             );
@@ -84,7 +104,9 @@ namespace GatewayTests
                 1,
                 new DataBase.Models.Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id = 1,
+                    Id_Utilizador = 1,
+                    Regiao = "Porto"
                 }, 
                 CancellationToken.None
             );

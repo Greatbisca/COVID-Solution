@@ -29,7 +29,9 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Doente()
             {
-                Nome = "Diogo Biscaia"
+                Id_Utilizador = 1,
+                Id = 1,
+                Regiao = "Porto"
             });
 
             doenteRepository.Setup(x => x.UpdateAsync(
@@ -37,7 +39,9 @@ namespace BusinessTests
               CancellationToken.None
           )).ReturnsAsync(new Doente()
           {
-              Nome = "Diogo Biscaia"
+              Id_Utilizador = 1,
+              Id = 1,
+              Regiao = "Porto"
           });
 
             doenteRepository.Setup(x => x.GetAsync(
@@ -45,7 +49,9 @@ namespace BusinessTests
                 CancellationToken.None
             )).ReturnsAsync(new Doente()
             {
-                Nome = "Diogo Biscaia"
+                Id_Utilizador = 1,
+                Id = 1,
+                Regiao = "Porto"
             });
 
             doenteRepository.Setup(x => x.GetAllAsync(
@@ -54,7 +60,9 @@ namespace BusinessTests
             {
                 new Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id_Utilizador = 1,
+                Id = 1,
+                Regiao = "Porto"
                 }
             });
 
@@ -73,12 +81,14 @@ namespace BusinessTests
             var doente = await business.CreateAsync(
                 new Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id_Utilizador = 1,
+                    Id = 1,
+                    Regiao = "Porto"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Id, 1);
         }
 
 
@@ -89,12 +99,14 @@ namespace BusinessTests
                 1,
                 new Doente()
                 {
-                    Nome = "Diogo Biscaia"
+                    Id_Utilizador = 1,
+                    Id = 1,
+                    Regiao = "Porto"
                 },
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Id, 1);
         }
 
         [Test]
@@ -105,7 +117,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.AreEqual(doente.Nome, "Diogo Biscaia");
+            Assert.AreEqual(doente.Id, 1);
         }
 
         [Test]
@@ -115,7 +127,7 @@ namespace BusinessTests
                 CancellationToken.None
             );
 
-            Assert.IsTrue(doentes.Any(x => x.Nome == "Diogo Biscaia"));
+            Assert.IsTrue(doentes.Any(x => x.Id == 1));
         }
 
         [Test]

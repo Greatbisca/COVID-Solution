@@ -7,17 +7,12 @@ namespace Covid_API.Mappings
 {
     public static class DoenteMapping
     {
-        public static DataBase.ViewModels.Doente ToViewModel(this DataBase.Models.Doente doente)
+        public static DataBase.ViewModels.Doente ToViewModel(this DataBase.Models.Doente doente, DataBase.Models.Utilizadores utilizador)
         {
             return new DataBase.ViewModels.Doente()
             {
-                Nome = doente.Nome
+                Nome = utilizador.Nome
             };
-        }
-
-        public static ICollection<DataBase.ViewModels.Doente> ToViewModel(this ICollection<DataBase.Models.Doente> doentes)
-        {
-            return doentes.Select(e => e.ToViewModel()).ToList();
         }
     }
 }
