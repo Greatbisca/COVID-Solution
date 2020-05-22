@@ -31,9 +31,16 @@ namespace Business
         /// <param name="internamento">Objeto Internamento para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<Internamento> CreateAsync(Internamento internamento, CancellationToken ct)
+        public async Task<Internamento> CreateAsync(Internamento internamento, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _internamentoRepository.CreateAsync(internamento, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na criação do internamento.", e);
+            }
         }
 
         /// <summary>
@@ -41,9 +48,17 @@ namespace Business
         /// </summary>
         /// <param name="id">Identificador do internamento</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
-        public Task DeleteAsync(int id, CancellationToken ct)
+        public async Task DeleteAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var internamento = await _internamentoRepository.GetAsync(id, ct);
+                await _internamentoRepository.DeleteAsync(internamento, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na eliminação do internamento.", e);
+            }
         }
 
         /// <summary>
@@ -51,9 +66,16 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de internamentos</returns>
-        public Task<ICollection<Internamento>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<Internamento>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _internamentoRepository.GetAllAsync(ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção da lista de internamentos.", e);
+            }
         }
 
         /// <summary>
@@ -62,9 +84,16 @@ namespace Business
         /// <param name="id">Identificador do internamento</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<Internamento> GetByIdAsync(int id, CancellationToken ct)
+        public async Task<Internamento> GetByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _internamentoRepository.GetAsync(id, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção do internamento.", e);
+            }
         }
 
         /// <summary>
@@ -74,9 +103,22 @@ namespace Business
         /// <param name="internamento">Dados do internamento para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do internamento</returns>
-        public Task<Internamento> UpdateAsync(int id, Internamento internamento, CancellationToken ct)
+        public async Task<Internamento> UpdateAsync(int id, Internamento internamento, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var internamentoObject = await _internamentoRepository.GetAsync(id, ct);
+                internamentoObject.Data_Alta = internamento.Data_Alta;
+                internamentoObject.Data_Internamento = internamento.Data_Internamento;
+                internamento.Id_Doente = internamento.Id_Doente;
+                internamento.Id_Hospital = internamento.Id_Hospital;
+
+                return await _internamentoRepository.UpdateAsync(internamentoObject, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na actualização do internamento.", e);
+            }
         }
     }
 }

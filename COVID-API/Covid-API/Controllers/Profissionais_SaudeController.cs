@@ -40,7 +40,7 @@ namespace Covid_API.Controllers
         [HttpPost]
         [Route("")]
         public async Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(
-            [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
+            [FromBody] DataBase.RequestModel.ProfissionalSaudeRequest profissionais_saude,
             CancellationToken ct
         )
         {
@@ -116,7 +116,7 @@ namespace Covid_API.Controllers
         [Route("{id}")]
         public async Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(
             [FromRoute] int id,
-            [FromBody] DataBase.Models.Profissionais_Saude profissionais_saude,
+            [FromBody] DataBase.RequestModel.ProfissionalSaudeRequest profissionais_saude,
             CancellationToken ct
         )
         {

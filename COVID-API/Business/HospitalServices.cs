@@ -26,9 +26,15 @@ namespace Business
         /// <param name="hospital"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        public Task<Hospital> CreateAsync(Hospital hospital, CancellationToken ct)
+        public async Task<Hospital> CreateAsync(Hospital hospital, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _hospitalRepository.CreateAsync(hospital, ct);
+            } catch(Exception e)
+            {
+                throw new Exception("Ocorreu um erro na criação do hospital.", e);
+            }
         }
 
         /// <summary>
@@ -37,9 +43,17 @@ namespace Business
         /// <param name="id">Identificador do hospital</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns></returns>
-        public Task DeleteAsync(int id, CancellationToken ct)
+        public async Task DeleteAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hospital = await _hospitalRepository.GetAsync(id, ct);
+                await _hospitalRepository.DeleteAsync(hospital, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na eliminação do hospital.", e);
+            }
         }
 
         /// <summary>
@@ -47,9 +61,16 @@ namespace Business
         /// </summary>
         /// <param name="ct"> Cancellation Token - chamada asincrona </param>
         /// <returns>Lista de hospitais</returns>
-        public Task<ICollection<Hospital>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<Hospital>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _hospitalRepository.GetAllAsync(ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção da lista de hospitais.", e);
+            }
         }
 
         /// <summary>
@@ -58,9 +79,16 @@ namespace Business
         /// <param name="id">Identificador do hospital</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do hospital</returns>
-        public Task<Hospital> GetByIdAsync(int id, CancellationToken ct)
+        public async Task<Hospital> GetByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _hospitalRepository.GetAsync(id, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção do hospital.", e);
+            }
         }
 
         /// <summary>
@@ -70,9 +98,20 @@ namespace Business
         /// <param name="hospital">Dados do hospital para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Hospital</returns>
-        public Task<Hospital> UpdateAsync(int id, Hospital hospital, CancellationToken ct)
+        public async Task<Hospital> UpdateAsync(int id, Hospital hospital, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var hospitalObject = await _hospitalRepository.GetAsync(id, ct);
+                hospitalObject.Distrito = hospital.Distrito;
+                hospitalObject.Nome = hospital.Nome;
+
+                return await _hospitalRepository.UpdateAsync(hospitalObject, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção do hospital.", e);
+            }
         }
     }
 }

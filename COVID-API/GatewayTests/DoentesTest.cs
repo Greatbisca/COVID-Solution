@@ -22,7 +22,7 @@ namespace GatewayTests
             Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Doente
             DoenteServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Doente>(), 
+                It.IsAny<DataBase.RequestModel.DoenteRequest>(), 
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
@@ -33,7 +33,7 @@ namespace GatewayTests
 
             DoenteServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Doente>(),
+                It.IsAny<DataBase.RequestModel.DoenteRequest>(),
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Doente()
             {
@@ -85,11 +85,15 @@ namespace GatewayTests
         public async Task CreateTestAsync()
         {
             var doente = await gateway.CreateAsync(
-                new DataBase.Models.Doente()
+                new DataBase.RequestModel.DoenteRequest()
                 {
-                    Id = 1,
-                    Id_Utilizador = 1,
-                    Regiao = "Porto"
+                    Regiao = "Porto",
+                    CC = 1234,
+                    Idade = 20,
+                    Morada = "Porto",
+                    NIB = 1234,
+                    Nome = "Diogo Biscaia",
+                    Sexo = "M"
                 }, 
                 CancellationToken.None
             );
@@ -102,11 +106,15 @@ namespace GatewayTests
         {
             var doente = await gateway.UpdateAsync(
                 1,
-                new DataBase.Models.Doente()
+                new DataBase.RequestModel.DoenteRequest()
                 {
-                    Id = 1,
-                    Id_Utilizador = 1,
-                    Regiao = "Porto"
+                    Regiao = "Porto",
+                    CC = 1234,
+                    Idade = 20,
+                    Morada = "Porto",
+                    NIB = 1234,
+                    Nome = "Diogo Biscaia",
+                    Sexo = "M"
                 }, 
                 CancellationToken.None
             );

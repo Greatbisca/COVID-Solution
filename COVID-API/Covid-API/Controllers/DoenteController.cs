@@ -40,7 +40,7 @@ namespace Covid_API.Controllers
         [HttpPost]
         [Route("")]
         public async Task<DataBase.ViewModels.Doente> CreateAsync(
-            [FromBody] DataBase.Models.Doente doente, 
+            [FromBody] DataBase.RequestModel.DoenteRequest doente, 
             CancellationToken ct
         )
         {
@@ -116,7 +116,7 @@ namespace Covid_API.Controllers
         [Route("{id}")]
         public async Task<DataBase.ViewModels.Doente> UpdateAsync(
             [FromRoute] int id, 
-            [FromBody] DataBase.Models.Doente doente, 
+            [FromBody] DataBase.RequestModel.DoenteRequest doente, 
             CancellationToken ct
         )
         {

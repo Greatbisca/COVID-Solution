@@ -3,6 +3,7 @@ using DataBase.Models;
 using DataBase.Repository;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -12,14 +13,22 @@ namespace Business
     public class Perfil_UtilizadorServices : IPerfil_UtilizadoresServices
     {
         private IRepository<Perfil_Utilizador> _perfil_utilizadorRepository;
+        private IPermissoesServices _permissoesServices;
+        private IModulosServices _modulosServices;
 
         /// <summary>
         /// Construtor do Dependency Injection
         /// </summary>
         /// <param name="perfil_utilizadorRepository"></param>
-        public Perfil_UtilizadorServices(IRepository<Perfil_Utilizador> perfil_utilizadorRepository)
+        public Perfil_UtilizadorServices(
+            IRepository<Perfil_Utilizador> perfil_utilizadorRepository,
+            IPermissoesServices permissoesServices,
+            IModulosServices modulosServices
+        )
         {
             _perfil_utilizadorRepository = perfil_utilizadorRepository;
+            _permissoesServices = permissoesServices;
+            _modulosServices = modulosServices;
         }
 
         /// <summary>
@@ -28,9 +37,28 @@ namespace Business
         /// <param name="perfil_utilizador">Objeto Perfil Utilizador para a criação na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Perfil Utilizador</returns>
-        public Task<Perfil_Utilizador> CreateAsync(Perfil_Utilizador perfil_utilizador, CancellationToken ct)
+        public async Task<Perfil_Utilizador> CreateAsync(Perfil_Utilizador perfil_utilizador, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var perfil = await _perfil_utilizadorRepository.CreateAsync(perfil_utilizador, ct);
+                var modulos = await _modulosServices.GetAllAsync(ct);
+
+                foreach(var modulo in modulos)
+                {
+                    await _permissoesServices.CreateAsync(new Permissoes()
+                    {
+                        Id_Modulo = modulo.Id,
+                        Id_Perfil_Utilizador = perfil.Id
+                    }, ct);
+                }
+
+                return perfil;
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na criação do perfil de utilizador.", e);
+            }
         }
 
         /// <summary>
@@ -38,9 +66,23 @@ namespace Business
         /// </summary>
         /// <param name="id">Identificador do Perfil Utilizador</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
-        public Task DeleteAsync(int id, CancellationToken ct)
+        public async Task DeleteAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var permissoes = await _permissoesServices.GetAllAsync(ct);
+                foreach(var permissao in permissoes.Where(p => p.Id_Perfil_Utilizador == id))
+                {
+                    await _permissoesServices.DeleteAsync(permissao.Id, ct);
+                }
+
+                var perfil_utilizador = await _perfil_utilizadorRepository.GetAsync(id, ct);
+                await _perfil_utilizadorRepository.DeleteAsync(perfil_utilizador, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na eliminação do perfil de utilizador.", e);
+            }
         }
 
         /// <summary>
@@ -48,9 +90,16 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de Perfil Utilizadores</returns>
-        public Task<ICollection<Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<Perfil_Utilizador>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _perfil_utilizadorRepository.GetAllAsync(ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção da lista de perfis de utilizador.", e);
+            }
         }
 
         /// <summary>
@@ -59,9 +108,16 @@ namespace Business
         /// <param name="id">Identificador do Perfil Utilizador</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do Perfil Utilzador</returns>
-        public Task<Perfil_Utilizador> GetByIdAsync(int id, CancellationToken ct)
+        public async Task<Perfil_Utilizador> GetByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _perfil_utilizadorRepository.GetAsync(id, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção do perfil de utilizador.", e);
+            }
         }
 
         /// <summary>
@@ -71,9 +127,19 @@ namespace Business
         /// <param name="perfil_utilizador">Dados do perfil utilizador para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View do perfil utilizador</returns>
-        public Task<Perfil_Utilizador> UpdateAsync(int id, Perfil_Utilizador perfil_utilizador, CancellationToken ct)
+        public async Task<Perfil_Utilizador> UpdateAsync(int id, Perfil_Utilizador perfil_utilizador, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var perfil_utilizadorObject = await _perfil_utilizadorRepository.GetAsync(id, ct);
+                perfil_utilizadorObject.Nome = perfil_utilizador.Nome;
+
+                return await _perfil_utilizadorRepository.UpdateAsync(perfil_utilizadorObject, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção do perfil de utilizador.", e);
+            }
         }
     }
 }

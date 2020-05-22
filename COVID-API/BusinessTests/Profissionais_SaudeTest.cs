@@ -2,6 +2,7 @@
 using Business.Interfaces;
 using DataBase.Models;
 using DataBase.Repository;
+using DataBase.RequestModel;
 using DataBase.ViewModels;
 using Moq;
 using NUnit.Framework;
@@ -24,6 +25,8 @@ namespace BusinessTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IRepository<Profissionais_Saude>> profissionais_saudeRepository = new Mock<IRepository<Profissionais_Saude>>();
+            Mock<IUtilizadoresServices> utilizadoresServices = new Mock<IUtilizadoresServices>();
+            Mock<IPerfil_UtilizadoresServices> perfil_utilizadoresServices = new Mock<IPerfil_UtilizadoresServices>();
             //Comportamento para criar o Doente
             profissionais_saudeRepository.Setup(x => x.CreateAsync(
                 It.IsAny<Profissionais_Saude>(),
@@ -64,16 +67,78 @@ namespace BusinessTests
                 CancellationToken.None
             ));
 
+
+            perfil_utilizadoresServices.Setup(x => x.GetAllAsync(
+                CancellationToken.None
+            )).ReturnsAsync(new List<DataBase.Models.Perfil_Utilizador>()
+            {
+                new DataBase.Models.Perfil_Utilizador()
+                {
+                    Id = 1,
+                    Nome = "Doente"
+                }
+            });
+
+            utilizadoresServices.Setup(x => x.GetByIdAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                CC = 1234,
+                Idade = 20,
+                Morada = "Porto",
+                NIB = 1234,
+                Nome = "Diogo Biscaia",
+                Sexo = "M"
+            });
+
+            utilizadoresServices.Setup(x => x.CreateAsync(
+                It.IsAny<DataBase.Models.Utilizadores>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                CC = 1234,
+                Idade = 20,
+                Morada = "Porto",
+                NIB = 1234,
+                Nome = "Diogo Biscaia",
+                Sexo = "M"
+            });
+
+            utilizadoresServices.Setup(x => x.UpdateAsync(
+                It.IsAny<int>(),
+                It.IsAny<DataBase.Models.Utilizadores>(),
+                CancellationToken.None
+            )).ReturnsAsync(new DataBase.Models.Utilizadores()
+            {
+                Id = 1,
+                CC = 1234,
+                Idade = 20,
+                Morada = "Porto",
+                NIB = 1234,
+                Nome = "Diogo Biscaia",
+                Sexo = "M"
+            });
+
             #endregion
-            business = new Profissionais_SaudeServices(profissionais_saudeRepository.Object);
+            business = new Profissionais_SaudeServices(profissionais_saudeRepository.Object, utilizadoresServices.Object, perfil_utilizadoresServices.Object);
         }
 
         [Test]
         public async Task CreateTestAsync()
         {
             var profissionais_saude = await business.CreateAsync(
-                new Profissionais_Saude()
+                new ProfissionalSaudeRequest()
                 {
+                    CC = 12345,
+                    Idade = 20,
+                    Id_Hospital = 1,
+                    Morada = "Porto",
+                    NIB = 12345,
+                    Nome = "Diogo Biscaia",
+                    Sexo = "M",
                     Profissao = "Médico"
                 },
                 CancellationToken.None
@@ -88,8 +153,15 @@ namespace BusinessTests
         {
             var profissionais_saude = await business.UpdateAsync(
                 1,
-                new Profissionais_Saude()
+                new ProfissionalSaudeRequest()
                 {
+                    CC = 12345,
+                    Idade = 20,
+                    Id_Hospital = 1,
+                    Morada = "Porto",
+                    NIB = 12345,
+                    Nome = "Diogo Biscaia",
+                    Sexo = "M",
                     Profissao = "Médico"
                 },
                 CancellationToken.None

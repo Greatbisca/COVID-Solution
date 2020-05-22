@@ -25,7 +25,7 @@ namespace GatewayTests
             Mock<IUtilizadoresServices> UtilizadoresServices = new Mock<IUtilizadoresServices>();
             //Comportamento para criar o Doente
             Profissionais_SaudeServices.Setup(x => x.CreateAsync(
-                It.IsAny<DataBase.Models.Profissionais_Saude>(),
+                It.IsAny<DataBase.RequestModel.ProfissionalSaudeRequest>(),
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Profissionais_Saude()
             {
@@ -37,7 +37,7 @@ namespace GatewayTests
 
             Profissionais_SaudeServices.Setup(x => x.UpdateAsync(
                 It.IsAny<int>(),
-                It.IsAny<DataBase.Models.Profissionais_Saude>(),
+                It.IsAny<DataBase.RequestModel.ProfissionalSaudeRequest>(),
                 CancellationToken.None
             )).ReturnsAsync(new DataBase.Models.Profissionais_Saude()
             {
@@ -99,7 +99,7 @@ namespace GatewayTests
         public async Task CreateTestAsync()
         {
             var profissionais_saude = await gateway.CreateAsync(
-                new DataBase.Models.Profissionais_Saude()
+                new DataBase.RequestModel.ProfissionalSaudeRequest()
                 {
                     Profissao = "Medico"
                 },
@@ -114,7 +114,7 @@ namespace GatewayTests
         {
             var profissionais_saude = await gateway.UpdateAsync(
                 1,
-                new DataBase.Models.Profissionais_Saude()
+                new DataBase.RequestModel.ProfissionalSaudeRequest()
                 {
                     Profissao = "Medico"
                 },

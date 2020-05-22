@@ -23,6 +23,8 @@ namespace BusinessTests
         {
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IRepository<Modulos>> modulosRepository = new Mock<IRepository<Modulos>>();
+            Mock<IPermissoesServices> permissoesServices = new Mock<IPermissoesServices>();
+            Mock<IPerfil_UtilizadoresServices> perfil_UtilizadoresServices = new Mock<IPerfil_UtilizadoresServices>();
             //Comportamento para criar o Modulo
             modulosRepository.Setup(x => x.CreateAsync(
                 It.IsAny<Modulos>(),
@@ -63,8 +65,54 @@ namespace BusinessTests
                 CancellationToken.None
             ));
 
+            permissoesServices.Setup(x => x.DeleteAsync(
+                It.IsAny<int>(),
+                CancellationToken.None
+            ));
+
+            permissoesServices.Setup(x => x.CreateAsync(
+                It.IsAny<Permissoes>(),
+                CancellationToken.None
+            )).ReturnsAsync(new Permissoes()
+            {
+                Id = 1,
+                Criar = true,
+                Eliminar = true,
+                Escrever = true,
+                Id_Modulo = 1,
+                Id_Perfil_Utilizador = 1,
+                Ler = true
+            });
+
+            permissoesServices.Setup(x => x.GetAllAsync(
+                CancellationToken.None
+            )).ReturnsAsync(new List<Permissoes>()
+            {
+                new Permissoes()
+                {
+                    Id = 1,
+                    Criar = true,
+                    Eliminar = true,
+                    Escrever = true,
+                    Id_Modulo = 1,
+                    Id_Perfil_Utilizador = 1,
+                    Ler = true
+                }
+            });
+
+            perfil_UtilizadoresServices.Setup(x => x.GetAllAsync(
+                CancellationToken.None
+            )).ReturnsAsync(new List<Perfil_Utilizador>()
+            {
+                new Perfil_Utilizador()
+                {
+                    Id = 1,
+                    Nome = "Médico"
+                }
+            });
+
             #endregion
-            business = new ModulosServices(modulosRepository.Object);
+            business = new ModulosServices(modulosRepository.Object, permissoesServices.Object, perfil_UtilizadoresServices.Object);
         }
 
         [Test]

@@ -19,7 +19,7 @@ namespace Business.Interfaces
         /// <param name="ct"></param>
         /// <returns></returns>
         Task<Doente> CreateAsync(
-            Doente doente, 
+            DataBase.RequestModel.DoenteRequest doente, 
             CancellationToken ct
         );
 
@@ -32,7 +32,7 @@ namespace Business.Interfaces
         /// <returns></returns>
         Task<Doente> UpdateAsync(
             int id,
-            Doente doente,
+            DataBase.RequestModel.DoenteRequest doente,
             CancellationToken ct
         );
 

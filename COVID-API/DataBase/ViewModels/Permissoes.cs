@@ -6,6 +6,7 @@ namespace DataBase.ViewModels
 {
     public class Permissoes
     {
+        public int Id { get; set; }
         public string Perfil { get; set; }
         public string Modulo { get; set; }
         public bool Ler { get; set; }

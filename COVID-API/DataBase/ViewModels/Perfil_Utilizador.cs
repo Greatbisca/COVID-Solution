@@ -6,6 +6,7 @@ namespace DataBase.ViewModels
 {
     public class Perfil_Utilizador
     {
+        public int Id { get; set; }
         public string Nome { get; set; }
     }
 }

@@ -28,9 +28,16 @@ namespace Business
         /// <param name="permissoes">Objeto Permissao para a criaçao na base de dados</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao criada</returns>
-        public Task<Permissoes> CreateAsync(Permissoes permissoes, CancellationToken ct)
+        public async Task<Permissoes> CreateAsync(Permissoes permissoes, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _permissoesRepository.CreateAsync(permissoes, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na criação da permissão.", e);
+            }
         }
 
         /// <summary>
@@ -39,9 +46,17 @@ namespace Business
         /// <param name="id">Identificador da permissao</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns></returns>
-        public Task DeleteAsync(int id, CancellationToken ct)
+        public async Task DeleteAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var permissao = await _permissoesRepository.GetAsync(id, ct);
+                await _permissoesRepository.DeleteAsync(permissao, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na eliminação da permissão.", e);
+            }
         }
 
         /// <summary>
@@ -49,9 +64,16 @@ namespace Business
         /// </summary>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>Lista de permissoes</returns>
-        public Task<ICollection<Permissoes>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<Permissoes>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _permissoesRepository.GetAllAsync(ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção da lista de permissoes.", e);
+            }
         }
 
         /// <summary>
@@ -60,9 +82,16 @@ namespace Business
         /// <param name="id">Identificador da permissao</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao</returns>
-        public Task<Permissoes> GetByIdAsync(int id, CancellationToken ct)
+        public async Task<Permissoes> GetByIdAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return await _permissoesRepository.GetAsync(id, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na obtenção da permissao.", e);
+            }
         }
 
         /// <summary>
@@ -72,9 +101,25 @@ namespace Business
         /// <param name="permissoes">Dados da permissao para gravar</param>
         /// <param name="ct">Cancellation Token - chamada asincrona</param>
         /// <returns>View da permissao</returns>
-        public Task<Permissoes> UpdateAsync(int id, Permissoes permissoes, CancellationToken ct)
+        public async Task<Permissoes> UpdateAsync(int id, Permissoes permissoes, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            try
+            {
+                var permissao = await _permissoesRepository.GetAsync(id, ct);
+
+                permissao.Criar = permissoes.Criar;
+                permissao.Eliminar = permissoes.Eliminar;
+                permissao.Escrever = permissoes.Escrever;
+                permissao.Id_Modulo = permissoes.Id_Modulo;
+                permissao.Id_Perfil_Utilizador = permissoes.Id_Perfil_Utilizador;
+                permissao.Ler = permissoes.Ler;
+
+                return await _permissoesRepository.UpdateAsync(permissao, ct);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("Ocorreu um erro na actualização da permissao.", e);
+            }
         }
     }
 }

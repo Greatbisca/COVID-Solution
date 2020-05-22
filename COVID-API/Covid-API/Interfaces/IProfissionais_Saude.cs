@@ -15,7 +15,7 @@ namespace Covid_API.Interfaces
         /// <param name="profissionais"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
+        Task<DataBase.ViewModels.Profissionais_Saude> CreateAsync(DataBase.RequestModel.ProfissionalSaudeRequest profissionais, CancellationToken ct);
 
         /// <summary>
         /// Update do Profissional de Saude
@@ -24,7 +24,7 @@ namespace Covid_API.Interfaces
         /// <param name="profissionais"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(int id, DataBase.Models.Profissionais_Saude profissionais, CancellationToken ct);
+        Task<DataBase.ViewModels.Profissionais_Saude> UpdateAsync(int id, DataBase.RequestModel.ProfissionalSaudeRequest profissionais, CancellationToken ct);
 
         /// <summary>
         /// Obter um Profissional pelo seu respetivo Id

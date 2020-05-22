@@ -14,7 +14,6 @@ namespace DataBase.DataModels
         public int IdDoente { get; set; }
         public int IdUtilizador { get; set; }
         public string Regiao { get; set; }
-        public string Nome { get; set; }
 
         public virtual Utilizador IdUtilizadorNavigation { get; set; }
         public virtual ICollection<Internamento> Internamento { get; set; }

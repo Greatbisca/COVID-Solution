@@ -16,7 +16,7 @@ namespace Covid_API.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> CreateAsync(DataBase.Models.Doente doente, CancellationToken ct);
+        Task<DataBase.ViewModels.Doente> CreateAsync(DataBase.RequestModel.DoenteRequest doente, CancellationToken ct);
         /// <summary>
         /// Update Doente
         /// </summary>
@@ -24,7 +24,7 @@ namespace Covid_API.Interfaces
         /// <param name="doente"></param>
         /// <param name="ct"></param>
         /// <returns></returns>
-        Task<DataBase.ViewModels.Doente> UpdateAsync(int id, DataBase.Models.Doente doente, CancellationToken ct);
+        Task<DataBase.ViewModels.Doente> UpdateAsync(int id, DataBase.RequestModel.DoenteRequest doente, CancellationToken ct);
         /// <summary>
         /// Obter o Doente pelo ID
         /// </summary>

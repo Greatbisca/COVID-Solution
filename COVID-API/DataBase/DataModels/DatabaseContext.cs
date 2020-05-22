@@ -55,11 +55,6 @@ namespace DataBase.DataModels
                     .HasColumnName("ID_Utilizador")
                     .HasColumnType("int(10)");
 
-                entity.Property(e => e.Nome)
-                    .IsRequired()
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
-
                 entity.Property(e => e.Regiao)
                     .IsRequired()
                     .HasMaxLength(55)

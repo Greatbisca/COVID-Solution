@@ -1,6 +1,7 @@
 ﻿using DataBase.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -9,29 +10,101 @@ namespace DataBase.Repository
 {
     public class HospitalRepository : IRepository<Hospital>
     {
-        public Task<Hospital> CreateAsync(Hospital entity, CancellationToken ct)
+        public async Task<Hospital> CreateAsync(Hospital entity, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                using (var ctx = new DataModels.DatabaseContext())
+                {
+                    var hospital = ctx.Hospital.Add(new DataModels.Hospital()
+                    {
+                        Distrito = entity.Distrito,
+                        Nome = entity.Nome
+                    });
+
+                    ctx.SaveChanges();
+
+                    return new Hospital()
+                    {
+                        Id = hospital.Entity.IdHospital,
+                        Distrito = hospital.Entity.Distrito,
+                        Nome = hospital.Entity.Nome
+                    };
+                }
+            },
+            ct);
         }
 
-        public Task DeleteAsync(Hospital entity, CancellationToken ct)
+        public async Task DeleteAsync(Hospital entity, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                using (var ctx = new DataModels.DatabaseContext())
+                {
+                    var hospital = ctx.Hospital.Find(entity.Id);
+                    ctx.Hospital.Remove(hospital);
+
+                    ctx.SaveChanges();
+                }
+            }, ct);
         }
 
-        public Task<ICollection<Hospital>> GetAllAsync(CancellationToken ct)
+        public async Task<ICollection<Hospital>> GetAllAsync(CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                using (var ctx = new DataModels.DatabaseContext())
+                {
+                    return ctx.Hospital.Select(x => new Hospital()
+                    {
+                        Id = x.IdHospital,
+                        Nome = x.Nome,
+                        Distrito = x.Distrito
+                    }).ToList();
+                }
+            }, ct);
         }
 
-        public Task<Hospital> GetAsync(int id, CancellationToken ct)
+        public async Task<Hospital> GetAsync(int id, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                using (var ctx = new DataModels.DatabaseContext())
+                {
+                    var hospital = ctx.Hospital.Find(id);
+
+                    return new Hospital()
+                    {
+                        Id = hospital.IdHospital,
+                        Nome = hospital.Nome,
+                        Distrito = hospital.Distrito
+                    };
+                }
+            }, ct);
         }
 
-        public Task<Hospital> UpdateAsync(Hospital entity, CancellationToken ct)
+        public async Task<Hospital> UpdateAsync(Hospital entity, CancellationToken ct)
         {
-            throw new NotImplementedException();
+            return await Task.Run(() =>
+            {
+                using (var ctx = new DataModels.DatabaseContext())
+                {
+                    var hospital = ctx.Hospital.Find(entity.Id);
+                    hospital.Nome = entity.Nome;
+                    hospital.Distrito = entity.Distrito;
+
+                    ctx.Hospital.Update(hospital);
+                    ctx.SaveChanges();
+
+                    return new Hospital()
+                    {
+                        Id = hospital.IdHospital,
+                        Nome = hospital.Nome,
+                        Distrito = hospital.Distrito
+                    };
+                }
+            },
+            ct);
         }
     }
 }

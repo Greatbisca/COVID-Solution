@@ -54,3 +54,4 @@ C:\COVID\COVID-API\DatabaseTests\obj\Debug\netcoreapp2.2\DatabaseTests.AssemblyI
 C:\COVID\COVID-API\DatabaseTests\obj\Debug\netcoreapp2.2\DatabaseTests.dll
 C:\COVID\COVID-API\DatabaseTests\obj\Debug\netcoreapp2.2\DatabaseTests.pdb
 C:\Users\diogo\Documents\GitHub\COVID-Solution\COVID-API\DatabaseTests\obj\Debug\netcoreapp2.2\DatabaseTests.csprojAssemblyReference.cache
+C:\COVID\COVID-API\DatabaseTests\obj\Debug\netcoreapp2.2\DatabaseTests.csprojAssemblyReference.cache

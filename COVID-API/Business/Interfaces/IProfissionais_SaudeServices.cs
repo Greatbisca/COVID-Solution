@@ -1,4 +1,5 @@
 ﻿using DataBase.Models;
+using DataBase.RequestModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -19,7 +20,7 @@ namespace Business.Interfaces
         /// <param name="ct"></param>
         /// <returns></returns>
         Task<Profissionais_Saude> CreateAsync(
-            Profissionais_Saude profissionais_saude,
+            ProfissionalSaudeRequest profissionais_saude,
             CancellationToken ct
         );
 
@@ -32,7 +33,7 @@ namespace Business.Interfaces
         /// <returns></returns>
         Task<Profissionais_Saude> UpdateAsync(
             int id,
-            Profissionais_Saude profissionais_saude,
+            ProfissionalSaudeRequest profissionais_saude,
             CancellationToken ct
         );
 
