@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[modulos]")]
+    [Route("api/modulos")]
     [ApiController]
     public class ModulosController : ControllerBase, IModulos
     {

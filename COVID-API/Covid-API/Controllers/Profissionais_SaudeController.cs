@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[profissional_saude]")]
+    [Route("api/profissional_saude")]
     [ApiController]
     public class Profissionais_SaudeController : ControllerBase, IProfissionais_Saude
     {

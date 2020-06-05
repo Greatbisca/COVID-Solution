@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[permissoes]")]
+    [Route("api/permissoes")]
     [ApiController]
     public class PermissoesController : ControllerBase, IPermissoes
     {

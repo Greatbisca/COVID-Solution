@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[perfil_utilizador]")]
+    [Route("api/perfil_utilizador")]
     [ApiController]
     public class Perfil_UtilizadorController : ControllerBase, IPerfil_Utilizador
     {

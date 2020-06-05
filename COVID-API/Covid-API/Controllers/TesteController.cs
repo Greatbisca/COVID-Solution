@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[teste]")]
+    [Route("api/teste")]
     [ApiController]
     public class TesteController : ControllerBase, ITestes
     {

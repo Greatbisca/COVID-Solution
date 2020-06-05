@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Covid_API.Controllers
 {
-    [Route("api/[utilizadores]")]
+    [Route("api/utilizadores")]
     [ApiController]
     public class UtilizadoresController : ControllerBase, IUtilizadores
     {
