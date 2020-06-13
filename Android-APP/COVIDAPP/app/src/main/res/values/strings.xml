@@ -1,12 +1,41 @@
 <resources>
-    <string name="app_name">COVID APP</string>
-    <string name="title_activity_main">Sign in</string>
-    <string name="prompt_email">Email</string>
+    <string name="app_name">Test</string>
+    <!-- Strings related to login -->
+    <string name="prompt_username">Username</string>
     <string name="prompt_password">Password</string>
-    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in">Sign in </string>
     <string name="action_sign_in_short">Sign in</string>
-    <string name="welcome">"Welcome !"</string>
+    <string name="welcome">"Welcome!"</string>
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <!-- End of Strings related to login -->
+
+    <!-- String related to Register -->
+    <string name="username"> Username</string>
+    <string name="name"> Name</string>
+    <string name="age"> Age</string>
+    <string name="sex"> Sex </string>
+    <string name="cc"> CC </string>
+    <string name="nib"> NIB</string>
+    <string name="address"> Address </string>
+    <string name="password"> Password</string>
+    <string name="register"> Register</string>
+    <string name="inpatients">Inpatients</string>
+    <!-- End of Strings related to Register -->
+
+    <!-- Strings for Names -->
+    <string name="hospital"> Hospitals </string>
+    <string name="internment">Internment </string>
+    <string name="modules">Modules </string>
+    <string name="user_profiles">User Profiles </string>
+    <string name="permissions">Permissions </string>
+    <string name="health_professionals">Health professionals </string>
+    <string name="tests">Tests </string>
+    <string name="create">Create </string>
+    <string name="delete">Delete</string>
+    <string name="list">List </string>
+    <string name="update">Update </string>
+
+
 </resources>
