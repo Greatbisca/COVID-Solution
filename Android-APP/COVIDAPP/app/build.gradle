@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.3"
-
     defaultConfig {
         applicationId "com.example.androidapp"
         minSdkVersion 14
@@ -27,6 +26,8 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation("com.squareup.okhttp3:okhttp:4.7.2")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.7.2")
 
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.constraintlayout:constraintlayout:1.1.3'

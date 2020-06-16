@@ -1,7 +1,9 @@
 package com.example.androidapp;
 
+import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.androidnetworking.AndroidNetworking;
@@ -13,6 +15,12 @@ import com.androidnetworking.interfaces.JSONObjectRequestListener;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.IOException;
+
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class DoenteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,36 +68,36 @@ public class DoenteActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     protected JSONArray DoenteList() {
-
-        final JSONArray[] result = new JSONArray[1];
+        JSONArray response = new JSONArray();
         try {
-            AndroidNetworking.get("https://localhost:44328/api/doente")
-                    .setTag("test")
-                    .setPriority(Priority.LOW)
-                    .build()
-                    .getAsJSONArray(new JSONArrayRequestListener() {
-                        @Override
-                        public void onResponse(JSONArray response) {
-                            result[0] = response;
-                        }
-
-                        @Override
-                        public void onError(ANError error) {
-                            try {
-                                throw new Exception(error);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                    });
-        } catch (Exception e) {
+            String resp = GenericGet("https://localhost:44328/api/doente");
+            response = new JSONArray(resp);
+        } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            return response;
         }
-        finally {
-            return result[0];
-        }
+
+
     }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    protected String GenericGet(String url) throws IOException{
+        OkHttpClient client = new OkHttpClient();
+
+
+            Request request = new Request.Builder()
+                    .url(url)
+                    .build();
+
+            try (Response response = client.newCall(request).execute()) {
+                return response.body().string();
+            }
+        }
+
+
 
     protected void DeleteDoeente(Integer id_doente){
 

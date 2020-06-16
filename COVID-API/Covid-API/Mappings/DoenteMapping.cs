@@ -11,7 +11,8 @@ namespace Covid_API.Mappings
         {
             return new DataBase.ViewModels.Doente()
             {
-                Nome = utilizador.Nome
+                Nome = utilizador.Nome,
+                Id = doente.Id
             };
         }
     }

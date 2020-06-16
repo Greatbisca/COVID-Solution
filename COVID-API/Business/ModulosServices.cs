@@ -13,7 +13,7 @@ namespace Business
     public class ModulosServices : IModulosServices
     {
         private IRepository<Modulos> _modulosRepository;
-        private IPerfil_UtilizadoresServices _perfil_UtilizadoresServices;
+        private IRepository<Perfil_Utilizador> _perfil_utilizadorRepository;
         private IPermissoesServices _permissoesServices;
 
         /// <summary>
@@ -23,12 +23,12 @@ namespace Business
         public ModulosServices(
             IRepository<Modulos> modulosRepository,
             IPermissoesServices permissoesServices,
-            IPerfil_UtilizadoresServices perfil_UtilizadoresServices
+            IRepository<Perfil_Utilizador> perfil_utilizadorRepository
         )
         {
             _modulosRepository = modulosRepository;
             _permissoesServices = permissoesServices;
-            _perfil_UtilizadoresServices = perfil_UtilizadoresServices;
+            _perfil_utilizadorRepository = perfil_utilizadorRepository;
         }
 
         public async Task<Modulos> CreateAsync(Modulos modulos, CancellationToken ct)
@@ -36,7 +36,7 @@ namespace Business
             try
             {
                 var modulo = await _modulosRepository.CreateAsync(modulos, ct);
-                var perfis = await _perfil_UtilizadoresServices.GetAllAsync(ct);
+                var perfis = await _perfil_utilizadorRepository.GetAllAsync(ct);
 
                 foreach(var perfil in perfis)
                 {

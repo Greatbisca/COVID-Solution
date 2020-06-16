@@ -20,7 +20,7 @@ public class TesteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidNetworking.initialize(getApplicationContext());
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_teste);
     }
 
     protected JSONObject CreateTeste(Integer id_doente, Integer id_profissional, OffsetDateTime data_teste, String tipo_teste, String resultado_teste) throws JSONException {

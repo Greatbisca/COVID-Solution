@@ -18,7 +18,7 @@ public class PermissoesActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidNetworking.initialize(getApplicationContext());
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_permissoes);
     }
 
     protected JSONObject CreatePermissoes(Integer id_perfil_utilizador, Integer id_modulo, Boolean ler, Boolean escrever, Boolean criar, Boolean eliminar) throws JSONException {

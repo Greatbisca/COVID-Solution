@@ -24,7 +24,7 @@ namespace BusinessTests
             #region Mocks - comportamentos ficticios para a lógica de negócio
             Mock<IRepository<Modulos>> modulosRepository = new Mock<IRepository<Modulos>>();
             Mock<IPermissoesServices> permissoesServices = new Mock<IPermissoesServices>();
-            Mock<IPerfil_UtilizadoresServices> perfil_UtilizadoresServices = new Mock<IPerfil_UtilizadoresServices>();
+            Mock<IRepository<Perfil_Utilizador>> perfil_utilizadorRepository = new Mock<IRepository<Perfil_Utilizador>>();
             //Comportamento para criar o Modulo
             modulosRepository.Setup(x => x.CreateAsync(
                 It.IsAny<Modulos>(),
@@ -100,7 +100,7 @@ namespace BusinessTests
                 }
             });
 
-            perfil_UtilizadoresServices.Setup(x => x.GetAllAsync(
+            perfil_utilizadorRepository.Setup(x => x.GetAllAsync(
                 CancellationToken.None
             )).ReturnsAsync(new List<Perfil_Utilizador>()
             {
@@ -112,7 +112,7 @@ namespace BusinessTests
             });
 
             #endregion
-            business = new ModulosServices(modulosRepository.Object, permissoesServices.Object, perfil_UtilizadoresServices.Object);
+            business = new ModulosServices(modulosRepository.Object, permissoesServices.Object, perfil_utilizadorRepository.Object);
         }
 
         [Test]
