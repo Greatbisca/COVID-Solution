@@ -22,9 +22,12 @@ public class LoginActivity extends AppCompatActivity {
 
         final EditText etUsername = (EditText) findViewById(R.id.etUsername);
         final EditText etPassword = (EditText) findViewById(R.id.etPassword);
-        final Button blogin = (Button) findViewById(R.id.blogin);
 
+        }
 
+        public void Menu(View view) {
+            Intent intentmenu = new Intent(this, Menus.class);
+            startActivity(intentmenu);
         }
 
         public void Registo(View view) {
@@ -32,9 +35,6 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intentregister);
         }
 
-        public void Menu(View view) {
-            Intent intentmenu = new Intent(this, Menus.class);
-            startActivity(intentmenu);
-        }
+
     }
 

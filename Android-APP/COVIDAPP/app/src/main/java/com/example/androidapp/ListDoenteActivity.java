@@ -31,7 +31,7 @@ public class ListDoenteActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         DoenteActivity apicall = new DoenteActivity();
-        JSONArray apilista = apicall.DoenteList();
+       /* JSONArray apilista = apicall.DoenteList();
 
         for(int i=0; i<apilista.length(); i++){
             JSONObject registo = null;
@@ -54,6 +54,6 @@ public class ListDoenteActivity extends AppCompatActivity {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
                 }
-            });
+            });*/
         }
 }

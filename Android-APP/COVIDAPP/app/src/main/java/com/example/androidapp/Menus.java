@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class Menus extends AppCompatActivity {
 
@@ -12,5 +13,10 @@ public class Menus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menus);
         Intent intentmenu = getIntent();
+    }
+
+    public void Doente(View view) {
+        Intent intentdoente = new Intent(this, DoenteActivity.class);
+        startActivity(intentdoente);
     }
 }
