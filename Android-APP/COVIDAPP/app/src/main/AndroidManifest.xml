@@ -11,9 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoenteListaItemActivity"></activity>
+        <activity android:name=".DoenteListItemActivity"></activity>
         <activity android:name=".UpdateDoenteActivity" />
-        <activity android:name=".CreateDoenteActivity" />
         <activity android:name=".Menus" />
         <activity android:name=".DoenteActivity"/>
         <activity android:name=".Register" />

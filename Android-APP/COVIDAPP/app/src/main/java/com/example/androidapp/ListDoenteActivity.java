@@ -45,7 +45,7 @@ public class ListDoenteActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_list_doente);
         simpleList = (ListView)findViewById(R.id.simpleListView);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_doente_lista_item, R.id.textView, lista);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this, R.layout.activity_doente_list_item, R.id.textView, lista);
         simpleList.setAdapter(arrayAdapter);
         //lista = (ListView) findViewById(R.id.list);
 

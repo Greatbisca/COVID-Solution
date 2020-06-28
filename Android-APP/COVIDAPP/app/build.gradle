@@ -27,6 +27,7 @@ dependencies {
 
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation("com.squareup.okhttp3:okhttp:4.7.2")
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
     testImplementation("com.squareup.okhttp3:mockwebserver:4.7.2")
 
     implementation 'androidx.appcompat:appcompat:1.1.0'

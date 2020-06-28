@@ -34,7 +34,7 @@ public class DoenteActivity extends AppCompatActivity {
     }
 
     public void ListaDoente(View view) {
-        Intent intentdoentelista = new Intent(this, DoenteListaItemActivity.class);
+        Intent intentdoentelista = new Intent(this, DoenteListItemActivity.class);
         startActivity(intentdoentelista);
     }
 
@@ -51,7 +51,7 @@ public class DoenteActivity extends AppCompatActivity {
         request.put("Region", regiao);
 
         try {
-            AndroidNetworking.post("https://localhost:44328/api/doente")
+            AndroidNetworking.post("https://192.168.56.1:44328/api/doente")
                     .addBodyParameter(request)
                     .setPriority(Priority.MEDIUM)
                     .build()
