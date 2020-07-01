@@ -34,7 +34,7 @@ public class DoenteActivity extends AppCompatActivity {
     }
 
     public void ListaDoente(View view) {
-        Intent intentdoentelista = new Intent(this, DoenteListItemActivity.class);
+        Intent intentdoentelista = new Intent(this, DoenteListItem.class);
         startActivity(intentdoentelista);
     }
 

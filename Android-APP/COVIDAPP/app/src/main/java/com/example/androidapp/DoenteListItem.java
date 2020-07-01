@@ -15,7 +15,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 
-public class DoenteListItemActivity extends AppCompatActivity {
+public class DoenteListItem extends AppCompatActivity {
 
     ListView simpleList;
     ArrayList<String> lista = new ArrayList<>();
@@ -26,7 +26,7 @@ public class DoenteListItemActivity extends AppCompatActivity {
         setContentView(R.layout.activity_doente_list_item);
         DoenteActivity apicall = new DoenteActivity();
 
-         JSONArray apilista = apicall.DoenteList();
+       /* JSONArray apilista = apicall.DoenteList();
 
         for(int i=0; i<apilista.length(); i++){
             JSONObject registo = null;
@@ -44,11 +44,11 @@ public class DoenteListItemActivity extends AppCompatActivity {
         simpleList.setAdapter(arrayAdapter);
         //lista = (ListView) findViewById(R.id.Lista);
 
-            simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        simpleList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                }
-            });
+            }
+        });*/
     }
 }

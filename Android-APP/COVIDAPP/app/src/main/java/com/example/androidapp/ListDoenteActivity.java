@@ -2,6 +2,8 @@ package com.example.androidapp;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -15,6 +17,7 @@ import com.google.gson.JsonObject;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import org.json.JSONStringer;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -25,13 +28,45 @@ public class ListDoenteActivity extends AppCompatActivity {
     ArrayList <String> lista = new ArrayList<>();
 
 
-        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
-        @Override
+        ArrayList<String> Nomes = new ArrayList<>();
 
         protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        DoenteActivity apicall = new DoenteActivity();
-       /* JSONArray apilista = apicall.DoenteList();
+            // get the reference of RecyclerView
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.);
+            // set a LinearLayoutManager with default vertical orientation
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
+            recyclerView.setLayoutManager(linearLayoutManager);
+
+            try {
+                // get JSONObject from JSON file
+                JSONObject obj = new JSONObject ("{ \"doentes\": [ { \"nome\": \"diogo biscaia\", \"id\": 1 } ] }");
+
+                // fetch JSONArray named users
+                JSONArray userArray = obj.getJSONArray("users");
+                // implement for loop for getting users list data
+                for (int i = 0; i < userArray.length(); i++) {
+                    // create a JSONObject for fetching single user data
+                    JSONObject userDetail = userArray.getJSONObject(i);
+                    // fetch email and name and store it in arraylist
+                    Nomes.add(userDetail.getString("nome"));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            //  call the constructor of CustomAdapter to send the reference and data to Adapter
+            CustomAdapter customAdapter = new CustomAdapter(ListDoenteActivity.this, Nomes);
+            recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
+        }
+
+
+
+
+
+       /*
+       DoenteActivity apicall = new DoenteActivity();
+       JSONArray apilista = apicall.DoenteList();
 
         for(int i=0; i<apilista.length(); i++){
             JSONObject registo = null;
