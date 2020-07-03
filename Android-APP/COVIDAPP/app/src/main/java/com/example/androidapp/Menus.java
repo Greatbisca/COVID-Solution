@@ -16,7 +16,7 @@ public class Menus extends AppCompatActivity {
     }
 
     public void Doente(View view) {
-        Intent intentdoente = new Intent(this, DoenteActivity.class);
+        Intent intentdoente = new Intent(this, ListDoenteActivity.class);
         startActivity(intentdoente);
     }
 }

@@ -31,9 +31,10 @@ public class ListDoenteActivity extends AppCompatActivity {
         ArrayList<String> Nomes = new ArrayList<>();
 
         protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_list_doente);
             // get the reference of RecyclerView
-            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.);
+            RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
             // set a LinearLayoutManager with default vertical orientation
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext());
             recyclerView.setLayoutManager(linearLayoutManager);
@@ -43,20 +44,20 @@ public class ListDoenteActivity extends AppCompatActivity {
                 JSONObject obj = new JSONObject ("{ \"doentes\": [ { \"nome\": \"diogo biscaia\", \"id\": 1 } ] }");
 
                 // fetch JSONArray named users
-                JSONArray userArray = obj.getJSONArray("users");
+                JSONArray doentesArray = obj.getJSONArray("doentes");
                 // implement for loop for getting users list data
-                for (int i = 0; i < userArray.length(); i++) {
+                for (int i = 0; i < doentesArray.length(); i++) {
                     // create a JSONObject for fetching single user data
-                    JSONObject userDetail = userArray.getJSONObject(i);
+                    JSONObject doentesDetail = doentesArray.getJSONObject(i);
                     // fetch email and name and store it in arraylist
-                    Nomes.add(userDetail.getString("nome"));
+                    Nomes.add(doentesDetail.getString("nome"));
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
             //  call the constructor of CustomAdapter to send the reference and data to Adapter
-            CustomAdapter customAdapter = new CustomAdapter(ListDoenteActivity.this, Nomes);
+            CustomAdapter customAdapter = new CustomAdapter(Nomes);
             recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
         }
 
@@ -91,4 +92,4 @@ public class ListDoenteActivity extends AppCompatActivity {
                 }
             });*/
         }
-}
+

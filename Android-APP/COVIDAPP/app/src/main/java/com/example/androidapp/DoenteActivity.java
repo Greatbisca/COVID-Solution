@@ -29,13 +29,8 @@ public class DoenteActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         AndroidNetworking.initialize(getApplicationContext());
-        setContentView(R.layout.activity_doente);
+        setContentView(R.layout.activity_list_doente);
         Intent intentdoente = getIntent();
-    }
-
-    public void ListaDoente(View view) {
-        Intent intentdoentelista = new Intent(this, DoenteListItem.class);
-        startActivity(intentdoentelista);
     }
 
 

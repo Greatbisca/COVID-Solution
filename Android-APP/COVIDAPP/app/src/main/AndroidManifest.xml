@@ -11,13 +11,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DoenteListItemActivity"></activity>
         <activity android:name=".UpdateDoenteActivity" />
         <activity android:name=".Menus" />
         <activity android:name=".DoenteActivity"/>
         <activity android:name=".Register" />
-        <activity android:name=".ListDoenteActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".ListDoenteActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
