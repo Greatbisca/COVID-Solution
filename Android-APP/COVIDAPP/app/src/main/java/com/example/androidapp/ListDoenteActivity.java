@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
@@ -33,6 +34,7 @@ public class ListDoenteActivity extends AppCompatActivity {
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_list_doente);
+            Intent intentdoente = getIntent();
             // get the reference of RecyclerView
             RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerView);
             // set a LinearLayoutManager with default vertical orientation

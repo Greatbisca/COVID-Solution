@@ -9,6 +9,7 @@ android {
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
+        vectorDrawables.useSupportLibrary = true
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,6 +28,7 @@ dependencies {
 
     implementation 'com.amitshekhar.android:android-networking:1.0.2'
     implementation("com.squareup.okhttp3:okhttp:4.7.2")
+    implementation 'com.google.android.material:material:1.0.0'
 
     testImplementation("com.squareup.okhttp3:mockwebserver:4.7.2")
 

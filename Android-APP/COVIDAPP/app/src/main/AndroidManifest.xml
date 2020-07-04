@@ -14,9 +14,9 @@
         <activity android:name=".UpdateDoenteActivity" />
         <activity android:name=".Menus" />
         <activity android:name=".DoenteActivity"/>
+        <activity android:name=".ListDoenteActivity"/>
         <activity android:name=".Register" />
-        <activity android:name=".LoginActivity"/>
-        <activity android:name=".ListDoenteActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

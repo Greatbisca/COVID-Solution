@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#90d1ff"
@@ -8,7 +9,8 @@
     android:orientation="vertical"
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
-    android:paddingTop="5dp">
+    android:paddingTop="5dp"
+    >
 
     <RelativeLayout
         android:id="@+id/layout1"
@@ -20,11 +22,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:text="Famous People"
+            android:text="Doentes"
             android:textColor="#000"
             android:textSize="25dp"
             android:textStyle="bold" />
 
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="341dp"
+            android:layout_marginLeft="341dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="7dp"
+            android:layout_marginRight="7dp"
+            app:srcCompat="@drawable/ic_baseline_delete_24" />
+
+        <ImageButton
+            android:id="@+id/imageButton1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/nome"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginStart="282dp"
+            android:layout_marginLeft="282dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="66dp"
+            android:layout_marginRight="66dp"
+            android:layout_marginBottom="-8dp"
+            app:srcCompat="@drawable/ic_baseline_edit_24" />
 
     </RelativeLayout>
 
