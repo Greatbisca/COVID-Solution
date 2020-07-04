@@ -16,6 +16,7 @@ namespace Covid_API.Controllers
     /// Gateway para a gestão de hospitais
     /// </summary>
     [Route("api/hospital")]
+    [Produces("application/json")]
     [ApiController]
     public class HospitalController : ControllerBase, IHospital
     {

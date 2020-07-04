@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,111 +8,111 @@
     tools:context=".Menus"
     android:background="@color/colorBackground2">
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true">
+    <ScrollView
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/Lista"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="110dp"
-                android:textSize="20dp"
-                android:layout_marginTop="50dp"
-                android:text="COVID APPLICATION"
-                android:textColor="@color/textColor" />
+        <TextView
+            android:id="@+id/Lista"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="110dp"
+            android:textSize="20dp"
+            android:layout_marginTop="50dp"
+            android:text="COVID APPLICATION"
+            android:textColor="@color/textColor" />
 
 
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginLeft="130sp"
-                android:layout_marginTop="50dp"
-                android:background="@color/buttonColor"
-                android:onClick="Doente"
-                android:text="@string/inpatients"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginLeft="130sp"
+            android:layout_marginTop="50dp"
+            android:background="@color/buttonColor"
+            android:onClick="Doente"
+            android:text="@string/inpatients"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/hospital"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/hospital"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/internment"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/internment"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button5"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/modules"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/modules"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button6"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/user_profiles"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/user_profiles"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button7"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/permissions"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/permissions"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button8"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:background="@color/buttonColor"
-                android:text="@string/health_professionals"
-                android:textColor="@color/textColor" />
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:background="@color/buttonColor"
+            android:text="@string/health_professionals"
+            android:textColor="@color/textColor" />
 
-            <Button
-                android:id="@+id/button9"
-                android:layout_width="155dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="80dp"
-                android:layout_marginLeft="130dp"
-                android:layout_marginBottom="40dp"
-                android:background="@color/buttonColor"
-                android:text="@string/tests"
-                android:textColor="@color/textColor" />
-
-
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="155dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginBottom="40dp"
+            android:background="@color/buttonColor"
+            android:text="@string/tests"
+            android:textColor="@color/textColor" />
         </LinearLayout>
-    </androidx.core.widget.NestedScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</android.support.constraint.ConstraintLayout>

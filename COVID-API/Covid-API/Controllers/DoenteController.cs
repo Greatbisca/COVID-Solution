@@ -15,6 +15,7 @@ namespace Covid_API.Controllers
     /// Gateway para a gestão de doentes
     /// </summary>
     [Route("api/doente")]
+    [Produces("application/json")]
     [ApiController]
     public class DoenteController : ControllerBase, IDoente
     {
