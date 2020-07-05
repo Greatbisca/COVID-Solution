@@ -18,4 +18,9 @@ public class Menus extends AppCompatActivity {
         Intent intentdoente = new Intent(this, ListDoenteActivity.class);
         startActivity(intentdoente);
     }
+
+    public void Profissional(View view) {
+        Intent intentprofissional = new Intent(this, ListProfissionalActivity.class);
+        startActivity(intentprofissional);
+    }
 }

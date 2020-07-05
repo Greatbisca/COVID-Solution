@@ -93,15 +93,16 @@
             android:text="@string/permissions"
             android:textColor="@color/textColor" />
 
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="155dp"
-            android:layout_height="48dp"
-            android:layout_marginTop="80dp"
-            android:layout_marginLeft="130dp"
-            android:background="@color/buttonColor"
-            android:text="@string/health_professionals"
-            android:textColor="@color/textColor" />
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="155dp"
+                android:layout_height="48dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="80dp"
+                android:background="@color/buttonColor"
+                android:onClick="Profissional"
+                android:text="@string/health_professionals"
+                android:textColor="@color/textColor" />
 
         <Button
             android:id="@+id/button9"

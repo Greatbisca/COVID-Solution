@@ -31,6 +31,7 @@ public class ListDoenteActivity extends AppCompatActivity {
         // GET
         Request get = new Request.Builder()
                 .url("http://192.168.1.8:24897/api/doente")
+                .addHeader("Cache-Control", "no-cache")
                 .build();
 
         client.newCall(get).enqueue(new Callback() {
@@ -43,6 +44,7 @@ public class ListDoenteActivity extends AppCompatActivity {
             public void onResponse(Call call, Response response) {
                 try {
                     final ArrayList<String> Nomes = new ArrayList<>();
+                    final ArrayList<Integer> Ids = new ArrayList<>();
                     ResponseBody responseBody = response.body();
                     if (!response.isSuccessful()) {
                         throw new IOException("Unexpected code " + response);
@@ -54,6 +56,7 @@ public class ListDoenteActivity extends AppCompatActivity {
                         JSONObject doentesDetail = doentesArray.getJSONObject(i);
                         // fetch email and name and store it in arraylist
                         Nomes.add(doentesDetail.getString("nome"));
+                        Ids.add(doentesDetail.getInt("id"));
                     }
                     ListDoenteActivity.this.runOnUiThread(new Runnable() {
                         @Override
@@ -65,7 +68,7 @@ public class ListDoenteActivity extends AppCompatActivity {
                             recyclerView.setLayoutManager(linearLayoutManager);
 
                             //  call the constructor of CustomAdapter to send the reference and data to Adapter
-                            CustomAdapter customAdapter = new CustomAdapter(Nomes);
+                            DoenteAdapter customAdapter = new DoenteAdapter(ListDoenteActivity.this,Nomes, Ids);
                             recyclerView.setAdapter(customAdapter); // set the Adapter to RecyclerView
                         }
                     });
