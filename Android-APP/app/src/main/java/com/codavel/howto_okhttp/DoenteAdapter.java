@@ -102,26 +102,33 @@ public class DoenteAdapter extends RecyclerView.Adapter<DoenteAdapter.MyViewHold
     }
 
     public void deleteDoenteClick(Integer position) {
-        Integer doenteid = doenteIds.get(position);
+        final Integer doenteid = doenteIds.get(position);
+        Thread thread = new Thread(new Runnable() {
 
-        OkHttpClient client = new OkHttpClient();
+            @Override
+            public void run() {
 
-        // DELETE
-        Request delete = new Request.Builder()
-                .url("http://192.168.1.8:24897/api/doente/" + doenteid.toString())
-                .delete()
-                .addHeader("Cache-Control", "no-cache")
-                .build();
+                OkHttpClient client = new OkHttpClient();
 
-        try {
-            Response response = client.newCall(delete).execute();
-            if (!response.isSuccessful()) {
-                throw new IOException("Unexpected code " + response);
+                // DELETE
+                Request delete = new Request.Builder()
+                        .url("http://192.168.1.9:1919/api/doente/" + doenteid.toString())
+                        .delete()
+                        .addHeader("Cache-Control", "no-cache")
+                        .build();
+                try {
+                    Response response = client.newCall(delete).execute();
+                    if (!response.isSuccessful()) {
+                        throw new IOException("Unexpected code " + response);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                } catch (Exception e) {
+                    Integer i = 1;
+                }
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            });
         }
-    }
 
     public void editDoenteClick(Context context, Integer position){
         Integer doenteid = doenteIds.get(position);

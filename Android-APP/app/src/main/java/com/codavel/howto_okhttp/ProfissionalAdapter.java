@@ -96,7 +96,7 @@ public class ProfissionalAdapter extends RecyclerView.Adapter<ProfissionalAdapte
 
         // DELETE
         Request delete = new Request.Builder()
-                .url("http://192.168.1.8:24897/api/profissional_saude/" + professionalid.toString())
+                .url("http://192.168.1.9:1919/api/profissional_saude/" + professionalid.toString())
                 .delete()
                 .addHeader("Cache-Control", "no-cache")
                 .build();

@@ -35,7 +35,7 @@ public class DoenteFormActivity  extends AppCompatActivity {
 
             // GET
             Request get = new Request.Builder()
-                    .url("http://192.168.1.8:24897/api/doente/" + intent.getStringExtra("Doente id"))
+                    .url("http://192.168.1.9:1919/api/doente/" + intent.getStringExtra("Doente id"))
                     .addHeader("Cache-Control", "no-cache")
                     .build();
 
@@ -96,7 +96,7 @@ public class DoenteFormActivity  extends AppCompatActivity {
             final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
             RequestBody postBody = RequestBody.create(JSON, postData.toString());
             Request post = new Request.Builder()
-                    .url("http://192.168.1.8:24897/api/doente")
+                    .url("http://192.168.1.9:1919/api/doente")
                     .post(postBody)
                     .addHeader("Cache-Control", "no-cache")
                     .build();
@@ -136,7 +136,7 @@ public class DoenteFormActivity  extends AppCompatActivity {
             final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
             RequestBody putBody = RequestBody.create(JSON, putData.toString());
             Request put = new Request.Builder()
-                    .url("http://192.168.1.8:24897/api/doente/" + txtid.getText().toString())
+                    .url("http://192.168.1.9:1919/api/doente/" + txtid.getText().toString())
                     .put(putBody)
                     .addHeader("Cache-Control", "no-cache")
                     .build();

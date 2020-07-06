@@ -30,7 +30,7 @@ public class ListDoenteActivity extends AppCompatActivity {
 
         // GET
         Request get = new Request.Builder()
-                .url("http://192.168.1.8:24897/api/doente")
+                .url("http://192.168.1.9:1919/api/doente")
                 .addHeader("Cache-Control", "no-cache")
                 .build();
 

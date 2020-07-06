@@ -28,7 +28,7 @@ public class ListProfissionalActivity extends AppCompatActivity {
 
         // GET
         Request get = new Request.Builder()
-                .url("http://192.168.1.8:24897/api/profissional_saude")
+                .url("http://192.168.1.9:1919/api/profissional_saude")
                 .addHeader("Cache-Control", "no-cache")
                 .build();
 

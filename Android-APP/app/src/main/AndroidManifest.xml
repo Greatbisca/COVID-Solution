@@ -14,6 +14,8 @@
         <activity android:name=".Menus" />
         <activity android:name=".ListDoenteActivity"/>
         <activity android:name=".Register" />
+        <activity android:name=".DoenteFormActivity"/>
+        <activity android:name=".ListProfissionalActivity"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

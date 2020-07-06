@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/COVIDAPP.iml" filepath="$PROJECT_DIR$/.idea/modules/COVIDAPP.iml" group="COVIDAPP" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/COVIDAPP-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/COVIDAPP-app.iml" group="COVIDAPP/app" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Android-APP.iml" filepath="$PROJECT_DIR$/.idea/modules/Android-APP.iml" group="Android-APP" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Android-APP-app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Android-APP-app.iml" group="Android-APP/app" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/howto-okhttp-android.iml" filepath="$PROJECT_DIR$/howto-okhttp-android.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/howto-okhttp-android-master.iml" filepath="$PROJECT_DIR$/.idea/modules/howto-okhttp-android-master.iml" group="howto-okhttp-android-master" />
