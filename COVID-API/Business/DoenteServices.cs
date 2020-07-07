@@ -86,8 +86,9 @@ namespace Business
             try
             {
                 var doente = await _doenteRepository.GetAsync(id, ct);
+                var utilizadorid = doente.Id_Utilizador;
                 await _doenteRepository.DeleteAsync(doente, ct);
-                await _utilizadoresServices.DeleteAsync(doente.Id_Utilizador, ct);
+               // await _utilizadoresServices.DeleteAsync(utilizadorid, ct);
             } catch (Exception e)
             {
                 throw new Exception("Ocorreu um erro ao eliminar o doente e o respectivo utilizador.", e);

@@ -128,6 +128,7 @@ public class DoenteAdapter extends RecyclerView.Adapter<DoenteAdapter.MyViewHold
                 }
             }
             });
+        thread.start();
         }
 
     public void editDoenteClick(Context context, Integer position){
